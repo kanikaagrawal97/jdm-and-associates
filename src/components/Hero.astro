@@ -20,10 +20,13 @@ const {
 
 <section class={`relative w-full ${isMain ? 'min-h-[70vh]' : 'min-h-[40vh]'} flex items-center justify-center overflow-hidden`}>
   <!-- Background Image & Overlay -->
-  <div class="absolute inset-0 z-0">
+  <div class="absolute inset-0 z-0 bg-brand-blue">
     <img 
       src={image} 
       alt="Corporate Office Background" 
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
       class="w-full h-full object-cover object-center"
     />
     <div class="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>

@@ -73,6 +73,9 @@ const cleanMembership = member.membership?.trim().replace(/-\s*$/, '').trim() ||
                 <img 
                   src={member.image || "/images/member-placeholder.png"} 
                   alt={member.name} 
+                  fetchpriority="high"
+                  loading="eager"
+                  decoding="async"
                   class="w-full h-full object-cover object-top transition-all duration-1000 group-hover:scale-105"
                 />
                 
