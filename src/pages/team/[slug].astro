@@ -20,8 +20,17 @@ if (!member) {
 }
 
 const isGroup = !member.role;
+const memberDescription = member.description 
+  ? `${member.description.split('.')[0].trim()}.` 
+  : `${member.name} is a member of the JDM and Associates LLP team.`;
+const cleanMembership = member.membership?.trim().replace(/-\s*$/, '').trim() || null;
 ---
-<BaseLayout title={member.name}>
+<BaseLayout 
+  title={member.name}
+  description={`${member.name}${member.role ? `, ${member.role}` : ''} at JDM and Associates LLP. ${memberDescription}`}
+  image={member.image || '/images/hero-bg.png'}
+  type="profile"
+>
   <!-- Top Navigation (Desktop) -->
   <div class="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-20 z-30 py-4 hidden md:block">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
@@ -72,7 +81,7 @@ const isGroup = !member.role;
               </div>
 
               <!-- Floating Credentials Badge -->
-              {(member.qualification || member.membership) && (
+              {(member.qualification || cleanMembership) && (
                 <div class="mt-8 lg:mt-0 lg:absolute lg:bottom-6 lg:left-6 lg:right-6 p-5 bg-slate-900 lg:bg-slate-900/80 lg:backdrop-blur-xl rounded-2xl border border-slate-800 lg:border-white/10 text-white shadow-xl lg:shadow-2xl transition-all duration-500 relative z-20 mx-auto lg:mx-0 max-w-md lg:max-w-none">
                   <div class="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 overflow-hidden">
                     {member.qualification && (
@@ -87,14 +96,14 @@ const isGroup = !member.role;
                       </div>
                     )}
                     
-                    {member.membership && (
+                    {cleanMembership && (
                       <div class="flex items-center gap-3 min-w-0">
                         <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 border border-white/10">
                           <svg class="w-5 h-5 text-brand-accent/90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                         </div>
                         <div class="min-w-0">
                           <p class="text-[9px] uppercase tracking-[0.2em] font-bold text-slate-400 mb-0.5">Membership No.</p>
-                          <p class="font-bold text-xs leading-tight truncate">{member.membership}</p>
+                          <p class="font-bold text-xs leading-tight truncate">{cleanMembership}</p>
                         </div>
                       </div>
                     )}

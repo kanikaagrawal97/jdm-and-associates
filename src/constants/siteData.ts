@@ -84,7 +84,7 @@ export const SITE_DATA = {
       ],
     },
     {
-      category: "XBRL Conversion and & E-filing",
+      category: "XBRL Conversion & E-filing",
       slug: "xbrl-efiling",
       shortSummary:
         "Mandated XBRL reporting for financial statements and cost audit reports to the MCA.",
@@ -112,7 +112,7 @@ export const SITE_DATA = {
       ],
     },
     {
-      category: "Services to Banks / FIs – Search:",
+      category: "Services to Banks & Financial Institutions",
       slug: "banking-services",
       shortSummary:
         "Detailed search reports, legal opinions, and charge registration for financial institutions.",

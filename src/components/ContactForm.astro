@@ -5,58 +5,90 @@
 <div class="bg-white rounded-xl shadow-lg p-8 md:p-10 border border-slate-100 animate-on-scroll stagger-2 h-full flex flex-col">
   <h3 class="text-2xl font-bold text-brand-blue mb-6">Send us a Message</h3>
   
-  <form action="https://api.web3forms.com/submit" method="POST" id="form" class="flex-1 flex flex-col">
+  <form action="https://api.web3forms.com/submit" method="POST" id="form" novalidate class="flex-1 flex flex-col">
     <!-- Replace with your actual Web3Forms Access Key: https://web3forms.com/ -->
     <input type="hidden" name="access_key" value="7f47d2fd-f21c-458f-a862-e0bdc6d0c08b">
-    <input type="hidden" name="subject" value="New Contact Form Submission from Website">
+    <input type="hidden" name="subject" value="New Contact Form Submission from JDM & Associates Website">
     <input type="checkbox" name="botcheck" id="" style="display: none;">
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
       <div>
-        <label for="name" class="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+        <label for="name" class="block text-sm font-medium text-slate-700 mb-2">
+          Full Name <span class="text-brand-accent" aria-hidden="true">*</span>
+        </label>
         <input 
           type="text" 
           name="name" 
           id="name" 
-          required 
+          required
+          minlength="2"
+          maxlength="100"
+          autocomplete="name"
+          aria-required="true"
+          aria-describedby="name-error"
           class="w-full px-4 py-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-colors bg-slate-50 placeholder-slate-400"
           placeholder="John Doe"
         >
+        <p id="name-error" class="text-red-500 text-xs mt-1.5 hidden" role="alert" aria-live="polite"></p>
       </div>
       <div>
-        <label for="email" class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+        <label for="email" class="block text-sm font-medium text-slate-700 mb-2">
+          Email Address <span class="text-brand-accent" aria-hidden="true">*</span>
+        </label>
         <input 
           type="email" 
           name="email" 
           id="email" 
-          required 
+          required
+          maxlength="254"
+          autocomplete="email"
+          aria-required="true"
+          aria-describedby="email-error"
           class="w-full px-4 py-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-colors bg-slate-50 placeholder-slate-400"
           placeholder="john@example.com"
         >
+        <p id="email-error" class="text-red-500 text-xs mt-1.5 hidden" role="alert" aria-live="polite"></p>
       </div>
     </div>
 
     <div class="mb-6">
-      <label for="phone" class="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
+      <label for="phone" class="block text-sm font-medium text-slate-700 mb-2">
+        Phone Number <span class="text-slate-400 text-xs font-normal">(optional)</span>
+      </label>
       <input 
         type="tel" 
         name="phone" 
         id="phone" 
+        maxlength="15"
+        autocomplete="tel"
+        aria-describedby="phone-error phone-hint"
         class="w-full px-4 py-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-colors bg-slate-50 placeholder-slate-400"
         placeholder="+91 98765 43210"
       >
+      <p id="phone-hint" class="text-slate-400 text-xs mt-1.5">Enter a valid Indian mobile number (e.g., +91 9876543210)</p>
+      <p id="phone-error" class="text-red-500 text-xs mt-1 hidden" role="alert" aria-live="polite"></p>
     </div>
 
     <div class="mb-6">
-      <label for="message" class="block text-sm font-medium text-slate-700 mb-2">Your Message</label>
+      <div class="flex justify-between items-center mb-2">
+        <label for="message" class="block text-sm font-medium text-slate-700">
+          Your Message <span class="text-brand-accent" aria-hidden="true">*</span>
+        </label>
+        <span id="char-count" class="text-xs text-slate-400">0 / 1000</span>
+      </div>
       <textarea 
         name="message" 
         id="message" 
         rows="4" 
-        required 
+        required
+        minlength="10"
+        maxlength="1000"
+        aria-required="true"
+        aria-describedby="message-error char-count"
         class="w-full px-4 py-3 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-accent focus:border-transparent transition-colors bg-slate-50 placeholder-slate-400 resize-none"
         placeholder="How can we help you?"
       ></textarea>
+      <p id="message-error" class="text-red-500 text-xs mt-1.5 hidden" role="alert" aria-live="polite"></p>
     </div>
 
     <button 
@@ -74,13 +106,148 @@
 <!-- Simple Toast Container - Moved to BaseLayout for global availability -->
 
 <script>
-  // Setup AJAX form submission
+  // ─── Field References ───────────────────────────────────────
   const form = document.getElementById('form') as HTMLFormElement | null;
   const submitBtn = document.getElementById('submit-button') as HTMLButtonElement | null;
   const btnText = document.getElementById('button-text');
   const btnIcon = document.getElementById('button-icon');
   const loadingSpinner = document.getElementById('loading-spinner');
 
+  const nameInput = document.getElementById('name') as HTMLInputElement | null;
+  const emailInput = document.getElementById('email') as HTMLInputElement | null;
+  const phoneInput = document.getElementById('phone') as HTMLInputElement | null;
+  const messageInput = document.getElementById('message') as HTMLTextAreaElement | null;
+  const charCount = document.getElementById('char-count');
+
+  // ─── Char Counter ─────────────────────────────────────────
+  messageInput?.addEventListener('input', () => {
+    const len = messageInput.value.length;
+    if (charCount) {
+      charCount.textContent = `${len} / 1000`;
+      charCount.classList.toggle('text-red-500', len >= 950);
+      charCount.classList.toggle('text-slate-400', len < 950);
+    }
+  });
+
+  // ─── Validation Helpers ──────────────────────────────────
+  function setError(inputId: string, message: string) {
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    const error = document.getElementById(`${inputId}-error`);
+    if (input) {
+      input.classList.add('border-red-400', 'focus:ring-red-400');
+      input.classList.remove('border-slate-200');
+    }
+    if (error) {
+      error.textContent = message;
+      error.classList.remove('hidden');
+    }
+  }
+
+  function clearError(inputId: string) {
+    const input = document.getElementById(inputId) as HTMLInputElement | null;
+    const error = document.getElementById(`${inputId}-error`);
+    if (input) {
+      input.classList.remove('border-red-400', 'focus:ring-red-400');
+      input.classList.add('border-slate-200');
+    }
+    if (error) {
+      error.textContent = '';
+      error.classList.add('hidden');
+    }
+  }
+
+  function validatePhone(value: string): boolean {
+    if (!value.trim()) return true; // optional field
+    // Accepts: +91 XXXXXXXXXX, 91XXXXXXXXXX, 0XXXXXXXXXX, or 10 digit number
+    const phoneRegex = /^(\+91[\s\-]?|91[\s\-]?|0)?[6-9]\d{9}$/;
+    return phoneRegex.test(value.replace(/[\s\-]/g, ''));
+  }
+
+  function validateEmail(value: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(value);
+  }
+
+  function validateForm(): boolean {
+    let isValid = true;
+
+    // Name
+    const nameVal = nameInput?.value.trim() ?? '';
+    if (!nameVal) {
+      setError('name', 'Full name is required.');
+      isValid = false;
+    } else if (nameVal.length < 2) {
+      setError('name', 'Name must be at least 2 characters.');
+      isValid = false;
+    } else {
+      clearError('name');
+    }
+
+    // Email
+    const emailVal = emailInput?.value.trim() ?? '';
+    if (!emailVal) {
+      setError('email', 'Email address is required.');
+      isValid = false;
+    } else if (!validateEmail(emailVal)) {
+      setError('email', 'Please enter a valid email address.');
+      isValid = false;
+    } else {
+      clearError('email');
+    }
+
+    // Phone (optional but validated if filled)
+    const phoneVal = phoneInput?.value.trim() ?? '';
+    if (phoneVal && !validatePhone(phoneVal)) {
+      setError('phone', 'Please enter a valid Indian phone number (e.g., +91 9876543210).');
+      isValid = false;
+    } else {
+      clearError('phone');
+    }
+
+    // Message
+    const messageVal = messageInput?.value.trim() ?? '';
+    if (!messageVal) {
+      setError('message', 'Please enter your message.');
+      isValid = false;
+    } else if (messageVal.length < 10) {
+      setError('message', 'Message must be at least 10 characters.');
+      isValid = false;
+    } else {
+      clearError('message');
+    }
+
+    return isValid;
+  }
+
+  // ─── Inline validation on blur ──────────────────────────
+  nameInput?.addEventListener('blur', () => {
+    const v = nameInput.value.trim();
+    if (!v) setError('name', 'Full name is required.');
+    else if (v.length < 2) setError('name', 'Name must be at least 2 characters.');
+    else clearError('name');
+  });
+
+  emailInput?.addEventListener('blur', () => {
+    const v = emailInput.value.trim();
+    if (!v) setError('email', 'Email address is required.');
+    else if (!validateEmail(v)) setError('email', 'Please enter a valid email address.');
+    else clearError('email');
+  });
+
+  phoneInput?.addEventListener('blur', () => {
+    const v = phoneInput.value.trim();
+    if (v && !validatePhone(v)) setError('phone', 'Please enter a valid Indian phone number.');
+    else clearError('phone');
+  });
+
+  messageInput?.addEventListener('blur', () => {
+    const v = messageInput.value.trim();
+    if (!v) setError('message', 'Please enter your message.');
+    else if (v.length < 10) setError('message', 'Message must be at least 10 characters.');
+    else clearError('message');
+  });
+
+  // ─── Toast ───────────────────────────────────────────────
   function showToast(message: string, isError = false) {
     const container = document.getElementById('toast-container');
     if (!container) return;
@@ -97,22 +264,20 @@
     `;
     
     container.prepend(toast);
-    
-    // Trigger animation
     setTimeout(() => toast.classList.add('show'), 10);
-    
-    // Remove after 5 seconds
     setTimeout(() => {
       toast.classList.remove('show');
-      toast.classList.add('-translate-y-12'); // Slide back up higher
+      toast.classList.add('-translate-y-12');
       setTimeout(() => toast.remove(), 700);
     }, 5000);
   }
 
-
+  // ─── Submit Handler ──────────────────────────────────────
   form?.addEventListener('submit', async function(e) {
     e.preventDefault();
     
+    if (!validateForm()) return;
+
     // UI Loading State
     if (submitBtn) submitBtn.disabled = true;
     if (btnText) btnText.innerText = 'Sending...';
@@ -138,6 +303,7 @@
       if (response.status === 200) {
         showToast('Message sent successfully! We will get back to you soon.');
         form?.reset();
+        if (charCount) charCount.textContent = '0 / 1000';
       } else {
         showToast(result.message || 'Something went wrong. Please try again.', true);
       }
@@ -145,7 +311,6 @@
       console.error(error);
       showToast('Network error. Please check your connection.', true);
     } finally {
-      // Revert UI State
       if (submitBtn) submitBtn.disabled = false;
       if (btnText) btnText.innerText = 'Send Message';
       if (btnIcon) btnIcon.classList.remove('hidden');
@@ -153,4 +318,5 @@
     }
   });
 </script>
+
 

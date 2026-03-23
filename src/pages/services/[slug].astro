@@ -12,9 +12,6 @@ export async function getStaticPaths() {
 
 const { service } = Astro.props;
 
-// Terminal Debugging for Routing
-console.log(`[Architecture] Rendering detail for: ${service.slug} | Image: ${service.image}`);
-
 // Specific Architecture Icons
 const getIconPath = (cat: string) => {
   const lowerCat = cat.toLowerCase();
@@ -30,7 +27,12 @@ const getIconPath = (cat: string) => {
 };
 ---
 
-<BaseLayout title={`${service.category} | ${SITE_DATA.firm.name}`}>
+<BaseLayout 
+  title={service.category}
+  description={`${service.shortSummary} JDM and Associates LLP provides expert ${service.category} services across Surat, Mumbai, and Chennai.`}
+  image={service.image}
+  type="article"
+>
   
   <header class="relative pt-24 pb-20 bg-brand-light overflow-hidden">
      <!-- Fine Background Fine Line -->
