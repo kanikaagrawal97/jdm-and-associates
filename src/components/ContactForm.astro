@@ -134,8 +134,10 @@
     const input = document.getElementById(inputId) as HTMLInputElement | null;
     const error = document.getElementById(`${inputId}-error`);
     if (input) {
-      input.classList.add('border-red-400', 'focus:ring-red-400');
-      input.classList.remove('border-slate-200');
+      // Use inline style to avoid Tailwind v4 purge issue with dynamic classes
+      input.style.borderColor = '#f87171';
+      input.style.outline = 'none';
+      input.style.boxShadow = '0 0 0 2px rgba(248,113,113,0.4)';
     }
     if (error) {
       error.textContent = message;
@@ -147,8 +149,8 @@
     const input = document.getElementById(inputId) as HTMLInputElement | null;
     const error = document.getElementById(`${inputId}-error`);
     if (input) {
-      input.classList.remove('border-red-400', 'focus:ring-red-400');
-      input.classList.add('border-slate-200');
+      input.style.borderColor = '';
+      input.style.boxShadow = '';
     }
     if (error) {
       error.textContent = '';
@@ -157,15 +159,19 @@
   }
 
   function validatePhone(value: string): boolean {
-    if (!value.trim()) return true; // optional field
-    // Accepts: +91 XXXXXXXXXX, 91XXXXXXXXXX, 0XXXXXXXXXX, or 10 digit number
-    const phoneRegex = /^(\+91[\s\-]?|91[\s\-]?|0)?[6-9]\d{9}$/;
-    return phoneRegex.test(value.replace(/[\s\-]/g, ''));
+    const trimmed = value.trim();
+    if (!trimmed) return true; // optional field
+    // Strip spaces and hyphens, then test
+    const stripped = trimmed.replace(/[\s\-]/g, '');
+    // Valid formats: +919876543210, 919876543210, 09876543210, 9876543210
+    // Must start with 6-9 (after stripping country code)
+    const tenDigit = stripped.replace(/^(\+91|91|0)/, '');
+    return /^[6-9][0-9]{9}$/.test(tenDigit);
   }
 
   function validateEmail(value: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(value);
+    // RFC 5322 simplified: something@something.something
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
   }
 
   function validateForm(): boolean {
