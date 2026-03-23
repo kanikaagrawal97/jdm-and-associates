@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+
+const clients = [
+  { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+    { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+      { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+        { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+          { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+            { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+              { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+                { name: 'Maitreya Medicare', industry: 'Healthcare IPO', initials: 'MM' },
+];
+---
+
+<BaseLayout title="Our Clients">
+  
+  <Hero 
+    title="Clients We Serve" 
+    subtitle="We take pride in our long-standing relationships with businesses across various sectors, ensuring their governance and compliance needs are consistently met." 
+    image="/images/client-bg.png"
+    isMain={false}
+  />
+
+  <section class="py-24 bg-white overflow-hidden relative">
+    <div class="absolute inset-0 bg-[url('/images/client-bg.png')] opacity-5 bg-cover bg-center bg-fixed mix-blend-luminosity pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 animate-on-scroll">
+        <span class="text-brand-accent font-semibold tracking-wider uppercase text-sm mb-4 block">Trusted Partners</span>
+        <h2 class="font-serif text-2xl sm:text-3xl md:text-5xl font-bold text-brand-blue mb-6">Companies That Trust Us</h2>
+        <p class="text-slate-600 text-xl leading-relaxed">
+          From promising startups to established public entities, our expertise helps organizations navigate the complex corporate regulatory environment.
+        </p>
+      </div>
+
+      <!-- Client Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {clients.map((client, index) => (
+          <div class={`animate-on-scroll stagger-${(index % 4) + 1} relative group/card`}>
+            <!-- Background Glow on Hover -->
+            <div class="absolute -inset-4 bg-gradient-to-tr from-brand-accent/5 via-transparent to-brand-blue/5 rounded-[2.5rem] blur-2xl opacity-0 group-hover/card:opacity-100 transition-all duration-700"></div>
+            
+            <div class="relative bg-white border border-slate-100/80 rounded-3xl p-8 h-full flex flex-col items-center justify-center text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[10px_30px_60px_-15px_rgba(0,0,0,0.1)] hover:-translate-y-4 transition-all duration-500 cursor-default">
+              <!-- Decorative corner -->
+              <div class="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-slate-50 to-transparent rounded-tr-3xl -z-10"></div>
+              
+              <!-- Stylish Initial Icon -->
+              <div class="relative mb-6">
+                <div class="absolute inset-0 bg-brand-accent/10 rounded-2xl rotate-6 group-hover/card:rotate-12 transition-transform duration-500"></div>
+                <div class="absolute inset-0 bg-brand-blue/5 rounded-2xl -rotate-3 group-hover/card:-rotate-6 transition-transform duration-500"></div>
+                <div class="relative w-16 h-16 rounded-2xl bg-white border border-slate-100 shadow-sm flex items-center justify-center text-2xl font-bold tracking-tighter text-brand-blue group-hover/card:scale-110 transition-transform duration-500">
+                  <span class="bg-clip-text text-transparent bg-gradient-to-br from-brand-blue to-slate-500">
+                    {client.initials}
+                  </span>
+                </div>
+              </div>
+              
+              <h3 class="font-serif text-xl font-bold text-brand-blue mb-2 tracking-tight group-hover/card:text-brand-accent transition-colors duration-300 leading-tight min-h-[3rem] flex items-center">
+                {client.name}
+              </h3>
+              
+              <div class="mt-auto inline-flex items-center px-4 py-1.5 rounded-full bg-slate-50 text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] border border-slate-100 group-hover/card:bg-brand-accent group-hover/card:text-white group-hover/card:border-brand-accent transition-all duration-300">
+                {client.industry}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Stats Section -->
+      <div class="mt-40 grid grid-cols-1 md:grid-cols-3 gap-8 animate-on-scroll stagger-2">
+        <div class="group relative overflow-hidden bg-brand-blue rounded-[2.5rem] p-12 text-white shadow-2xl transition-all duration-500 hover:-translate-y-4">
+          <div class="absolute -top-10 -right-10 w-40 h-40 bg-brand-accent/20 rounded-full blur-3xl group-hover:bg-brand-accent/40 transition-colors duration-500"></div>
+          <p class="text-7xl font-bold text-brand-accent mb-4 tabular-nums tracking-tighter">400+</p>
+          <p class="text-slate-300 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Companies Served Successfully</p>
+        </div>
+        
+        <div class="group relative overflow-hidden bg-slate-800 rounded-[2.5rem] p-12 text-white shadow-2xl transition-all duration-500 hover:-translate-y-4">
+          <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-yellow-400/10 rounded-full blur-3xl group-hover:bg-yellow-400/20 transition-colors duration-500"></div>
+          <p class="text-7xl font-bold text-yellow-400 mb-4 tabular-nums tracking-tighter">12+</p>
+          <p class="text-slate-300 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Years of Professional Excellence</p>
+        </div>
+        
+        <div class="group relative overflow-hidden bg-white border border-slate-100 rounded-[2.5rem] p-12 text-brand-blue shadow-xl transition-all duration-500 hover:-translate-y-4">
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-light rounded-full blur-3xl -z-10 group-hover:bg-brand-accent/5 transition-colors duration-500"></div>
+          <p class="text-7xl font-bold text-brand-accent mb-4 tabular-nums tracking-tighter">3</p>
+          <p class="text-slate-500 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Major Strategic Office Locations</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+  </style>
+</BaseLayout>

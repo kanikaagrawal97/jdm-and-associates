@@ -1,0 +1,63 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Corporate Governance & Compliance Consultant" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+		
+		<title>{title} | JDM & Associates</title>
+	</head>
+	<body class="flex flex-col min-h-screen bg-brand-light">
+		<Navbar />
+		
+		<!-- Global Toast Container -->
+		<div id="toast-container"></div>
+		
+		<main class="flex-grow pt-20"> <!-- pt-20 to account for fixed navbar -->
+			<slot />
+		</main>
+
+		<Footer />
+
+		<!-- Intersection Observer for Scroll Animations -->
+		<script>
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  const elements = document.querySelectorAll('.animate-on-scroll');
+  elements.forEach(el => observer.observe(el));
+</script>
+	</body>
+</html>

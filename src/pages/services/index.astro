@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import { SITE_DATA } from '../../constants/siteData';
+
+const categories = SITE_DATA.services;
+---
+
+<BaseLayout title="Practice Areas | JDM & Associates" description="Expert corporate advisory and global compliance mandates.">
+  
+  <Hero 
+    title="Service Architecture" 
+    subtitle="Strategic mandates and institutional governance for world-class enterprises." 
+    image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80"
+    isMain={false}
+  />
+
+  <!-- The Architectural Cut Services -->
+  <section class="py-24 bg-[#FCFCFD] relative overflow-hidden">
+    <!-- Sophisticated Fine Lines -->
+    <div class="absolute inset-0 pointer-events-none opacity-10">
+       <div class="absolute top-0 left-[20%] h-full w-px bg-slate-300"></div>
+       <div class="absolute top-0 left-[80%] h-full w-px bg-slate-300"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="space-y-40">
+        {categories.map((service, index) => {
+          const isEven = index % 2 === 0;
+          return (
+            <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 animate-on-scroll group`}>
+              
+              <!-- High-Flair Artistic Portal (Persistent Cut) -->
+              <div class="w-full lg:w-1/2 relative">
+                <!-- Static Outline Frame (Persistent Cut) -->
+                <div class="absolute -inset-4 border border-slate-200 rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none -z-10 transition-colors duration-500 group-hover:border-brand-accent/30"></div>
+                
+                <!-- Dot Matrix (Hidden Behind Image) -->
+                <div class={`absolute -top-6 md:-top-10 ${isEven ? '-left-6 md:-left-10' : '-right-6 md:-right-10'} w-20 h-20 md:w-32 md:h-32 opacity-10 pointer-events-none group-hover:opacity-30 transition-opacity z-[-5]`} style="background-image: radial-gradient(#0f172a 2px, transparent 2px); background-size: 10px 10px;"></div>
+
+                <!-- Main Architectural Image (Persistent Cut) -->
+                <div class="relative z-10 aspect-[16/11] overflow-hidden rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none shadow-2xl border-4 border-white bg-slate-50">
+                  <img 
+                    src={service.image} 
+                    alt={service.category} 
+                    class="w-full h-full object-cover rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none transition-all duration-[2s] grayscale-[0.3] group-hover:grayscale-0"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="w-full lg:w-1/2 space-y-8">
+                <div class="space-y-4">
+                  <div class="h-1 w-12 bg-brand-accent/20 group-hover:w-24 group-hover:bg-brand-accent transition-all duration-700"></div>
+                  <h2 class="font-serif text-3xl lg:text-4xl font-bold text-brand-blue leading-[1.1] tracking-tighter uppercase">
+                     {service.category}
+                  </h2>
+                </div>
+
+                <p class="text-slate-600 text-lg leading-relaxed font-medium border-l-4 border-brand-accent/10 pl-10 max-w-xl">
+                  {service.shortSummary}
+                </p>
+
+                <div class="grid grid-cols-1 gap-4 pt-4">
+                   {service.items.slice(0, 4).map(item => (
+                     <div class="flex items-start gap-4 group/li">
+                        <div class="mt-2.5 shrink-0 w-1 h-1 rounded-full bg-slate-300 group-hover/li:bg-brand-accent group-hover/li:scale-150 transition-all"></div>
+                        <span class="text-xs sm:text-[13px] font-medium text-slate-700 leading-relaxed">{item}</span>
+                     </div>
+                   ))}
+                </div>
+
+                <div class="pt-6">
+                  <a 
+                    href={`/services/${service.slug}`} 
+                    class="group/cta inline-flex items-center gap-10 bg-brand-blue text-white px-10 py-5 rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl"
+                  >
+                    <span class="font-black tracking-[0.4em] text-[10px] uppercase text-white">View Details</span>
+                    <svg class="w-5 h-5 transform group-hover/cta:translate-x-3 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          )
+        })}
+      </div>
+
+    </div>
+  </section>
+
+</BaseLayout>

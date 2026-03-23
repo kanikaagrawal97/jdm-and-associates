@@ -1,0 +1,50 @@
+---
+interface Props {
+  category: string;
+  items: string[];
+  delay?: number;
+}
+
+const { category, items, delay = 0 } = Astro.props;
+
+// Helper to get an icon based on category keywords (simplified)
+const getIconSvg = (cat: string) => {
+  const lowerCat = cat.toLowerCase();
+  let path = "M4 6h16M4 10h16M4 14h16M4 18h16"; // Default list icon
+  
+  if (lowerCat.includes('startup')) {
+    path = "M13 10V3L4 14h7v7l9-11h-7z"; // Lightning
+  } else if (lowerCat.includes('compliance')) {
+    path = "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"; // Shield check
+  } else if (lowerCat.includes('audit') || lowerCat.includes('diligence')) {
+    path = "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"; // Clipboard list
+  } else if (lowerCat.includes('fema') || lowerCat.includes('legal')) {
+    path = "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"; // Scales
+  } else if (lowerCat.includes('sebi') || lowerCat.includes('listing')) {
+    path = "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"; // Trending up
+  }
+
+  return `<svg class="w-8 h-8 text-brand-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="${path}" /></svg>`;
+};
+---
+
+<div class={`bg-white rounded-xl p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group animate-on-scroll stagger-${delay}`}>
+  <div class="w-14 h-14 rounded-lg bg-brand-light flex items-center justify-center mb-6 group-hover:bg-brand-blue group-hover:scale-110 transition-all duration-300">
+    <Fragment set:html={getIconSvg(category).replace('text-brand-accent', 'text-brand-accent group-hover:text-white transition-colors')} />
+  </div>
+  
+  <h3 class="text-xl font-bold text-brand-blue mb-4 leading-tight group-hover:text-brand-accent transition-colors">
+    {category}
+  </h3>
+  
+  <ul class="space-y-3">
+    {items.map(item => (
+      <li class="flex items-start text-sm text-slate-600">
+        <svg class="w-4 h-4 text-brand-accent mr-2 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</div>
