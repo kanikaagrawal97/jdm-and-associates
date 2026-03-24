@@ -33,7 +33,7 @@ export const SITE_DATA = {
       items: [
         "Incorporation of Public Limited/Private Limited/Section 8 License (non-profit)",
         "Foreign Branch Offices (Including Liaison office)",
-        "Wholly Owned Subsidiaries and Joint Ventures"
+        "Wholly Owned Subsidiaries and Joint Ventures",
       ],
     },
     {
@@ -52,7 +52,7 @@ export const SITE_DATA = {
         "Alteration in Board Members and in Main Object",
         "Filing of petition to Regional Director for delay is registering and satisfying of charges",
         "Filing of Annual accounts, Annual return and various returns E-forms with MCA",
-        "Certifications of various forms Annual return (MGT-7) and Form No. MGT-8 as per Section 92(2) of the Companies Act, 2013"
+        "Certifications of various forms Annual return (MGT-7) and Form No. MGT-8 as per Section 92(2) of the Companies Act, 2013",
       ],
     },
     {
@@ -63,7 +63,7 @@ export const SITE_DATA = {
       image: "/images/services/audit.jpg",
       items: [
         "Secretarial Audit / Secretarial Compliance Certificate for Public Sector Undertaking, Public and Private Limited Companies.",
-        "Due Diligence Certification of the Corporate to ensure Secretarial / Legal Compliances including Due Diligence Audit for Merger, Amalgamation, Take over, Private Equity Participation & Bought Out Deals."
+        "Due Diligence Certification of the Corporate to ensure Secretarial / Legal Compliances including Due Diligence Audit for Merger, Amalgamation, Take over, Private Equity Participation & Bought Out Deals.",
       ],
     },
     {
@@ -80,7 +80,7 @@ export const SITE_DATA = {
         "Reporting & Documentation: Filing of FC-GPR, FC-TRS, FLA, Form ODI, and other FEMA-related returns.",
         "Maintenance of necessary documentation to withstand regulatory scrutiny.",
         "RBI Approvals & Compounding: Application preparation and liaison for transactions requiring RBI approval.",
-        "Representation and assistance in compounding of FEMA contraventions."
+        "Representation and assistance in compounding of FEMA contraventions.",
       ],
     },
     {
@@ -94,7 +94,7 @@ export const SITE_DATA = {
         "All companies listed in India and their Indian Subsidiaries;",
         "All companies having a paid-up capital of Rs. 5 Crores and above;",
         "All companies having a turnover of Rs. 100 Crores and above.",
-        "XBRL for Cost Audit & Compliance Reports - The Ministry of Corporate Affairs (MCA) has mandated all cost auditors and the concerned companies to file their Cost Audit Reports and Compliance Reports for the year 2011-12 onwards [that also includes the overdue reports relating to any previous year(s)] in the XBRL mode."
+        "XBRL for Cost Audit & Compliance Reports - The Ministry of Corporate Affairs (MCA) has mandated all cost auditors and the concerned companies to file their Cost Audit Reports and Compliance Reports for the year 2011-12 onwards [that also includes the overdue reports relating to any previous year(s)] in the XBRL mode.",
       ],
     },
     {
@@ -108,7 +108,7 @@ export const SITE_DATA = {
         "Oppression and Mismanagement petitions under Sections 241–242",
         "Applications for compounding of offenses, shifting of registered office, reduction of Capital, and restoration of Companies.",
         "Public Offer (IPO/FPO), Right Offer, Preferential Offer, Public Offer through Book-Building Process, Capital Restructuring, includes SME listing etc.",
-        "Implementation of strategic issues including preparation of documents, submission thereof before various regulatory authorities such as Registrar of Companies, National Company Law Tribunal (NCLT), Regional Director etc."
+        "Implementation of strategic issues including preparation of documents, submission thereof before various regulatory authorities such as Registrar of Companies, National Company Law Tribunal (NCLT), Regional Director etc.",
       ],
     },
     {
@@ -121,7 +121,7 @@ export const SITE_DATA = {
         "Issue of Detailed search Reports.",
         "Opinion on various Company Law matters.",
         "Advising on Creation and Registration of charges.",
-        "Advising lenders in safeguarding their interest consequent to change in the constitution of the borrower including change in management and ownership etc."
+        "Advising lenders in safeguarding their interest consequent to change in the constitution of the borrower including change in management and ownership etc.",
       ],
     },
     {
@@ -144,7 +144,7 @@ export const SITE_DATA = {
         "Quarterly Certificate of SDD Compliance pursuant to Regulation 3(5) and 3(6) of SEBI (PIT), 2025",
         "Advising and acting as Scrutinizer for Postal Ballot process as per section 108 of Companies Act 2013.",
         "Quarterly Certificate of Reconciliation of Share Capital Audit Report pursuant to Reg 76 of SEBI (DP), 2018.",
-        "Delisting of securities from Stock exchange"
+        "Delisting of securities from Stock exchange",
       ],
     },
     {
@@ -157,7 +157,7 @@ export const SITE_DATA = {
         "Preparation and submission of DPIIT Startup Recognition application.",
         "Registration on the Startup India portal, Profile creation and management.",
         "Assistance in preparing for Startup India Seed Fund Scheme (SISFS).",
-        "Support in applying Funds for Startups (FFS), or state startup grants."
+        "Support in applying Funds for Startups (FFS), or state startup grants.",
       ],
     },
     {
@@ -168,7 +168,7 @@ export const SITE_DATA = {
       image: "/images/services/legal.jpg",
       items: [
         "Shareholder’s Agreement / Share Purchase Agreements.",
-        "Joint Venture Agreements."
+        "Joint Venture Agreements.",
       ],
     },
     {
@@ -179,7 +179,7 @@ export const SITE_DATA = {
       image: "/images/services/legal.jpg",
       items: [
         "Preparation / Consulting on Application and submissions including hearing.",
-        "Obtaining the Registration Certificate and completion of all legal formalities."
+        "Obtaining the Registration Certificate and completion of all legal formalities.",
       ],
     },
     {
@@ -191,7 +191,7 @@ export const SITE_DATA = {
       items: [
         "Advising & Documentation with respect to closure of Companies u/s 248(2) of the Companies Act, 2013 and Rule 4(1) of the Companies (Removal of Names of Companies from the Register of Companies) Rules, 2016] (Defunct Companies).",
         "Advising & Documentation with respect to winding up of Companies as per provisions of the Companies Act, 2013.",
-        "Advising & Documentation with respect to closure of LLP u/s 37(1)(b) of Limited Liability Partnership Rules, 2009"
+        "Advising & Documentation with respect to closure of LLP u/s 37(1)(b) of Limited Liability Partnership Rules, 2009",
       ],
     },
   ],
@@ -199,6 +199,7 @@ export const SITE_DATA = {
   team: [
     {
       name: "CS Jaisal Mohatta",
+      linkedIn: "https://www.linkedin.com/in/jaisal-mohatta-4a342277",
       role: "Founder Partner",
       qualification: "B.Com, ACS",
       membership: "ACS – 35017",
@@ -208,6 +209,7 @@ export const SITE_DATA = {
     },
     {
       name: "CS Dhaval P. Master",
+      linkedIn: "https://www.linkedin.com/in/dhaval-master-40775357",
       role: "Founder Partner",
       qualification: "B.Com, LLB, ACS, MSC (UK)",
       membership: "ACS – 34204",
@@ -217,6 +219,7 @@ export const SITE_DATA = {
     },
     {
       name: "CS Ekta Kansal",
+      linkedIn: "https://www.linkedin.com/in/ekta-agarwal-7a5b7b224",
       role: "Partner",
       qualification: "B. Com, ACS",
       membership: "ACS – 72282",
@@ -226,6 +229,7 @@ export const SITE_DATA = {
     },
     {
       name: "CS Vaibhavi Jhaveri",
+      linkedIn: "https://www.linkedin.com/in/vaibhavi-jhaveri-2b678118b",
       role: "Senior Corporate Manager",
       qualification: "B. Com, ACS",
       membership: "ACS – 43758",
@@ -235,6 +239,7 @@ export const SITE_DATA = {
     },
     {
       name: "CS Kashish Surana",
+      linkedIn: "https://www.linkedin.com/in/kashish-surana-067485337",
       role: "Manager - Secretarial",
       qualification: "B.Com, ACS",
       membership: "ACS – 76674",
@@ -244,6 +249,7 @@ export const SITE_DATA = {
     },
     {
       name: "CS Tanya Agarwal",
+      linkedIn: "https://www.linkedin.com/in/cs-tanya-agarwal-b35ba5238",
       role: "Deputy Manager - Secretarial",
       qualification: "B. Com, ACS",
       membership: "ACS – 78348",
@@ -253,6 +259,7 @@ export const SITE_DATA = {
     },
     {
       name: "CS Mukti Shah",
+      linkedIn: "https://www.linkedin.com/in/mukti-shah-6989a0202",
       role: "Associate Manager - Secretarial",
       qualification: "B.Com, ACS",
       membership: "ACS – 75723",
@@ -271,6 +278,7 @@ export const SITE_DATA = {
     },
     {
       name: "Deepika Jain",
+      linkedIn: "https://www.linkedin.com/in/deepika-jain-0284ba289",
       role: "Associate Manager – Governance",
       qualification: "B.Com, ACS",
       membership: "ACS – ",
@@ -280,6 +288,7 @@ export const SITE_DATA = {
     },
     {
       name: "Meghna Chauhan",
+      linkedIn: "https://www.linkedin.com/in/meghna-chauhan-56b304239",
       role: "Associate",
       image: "/images/team/meghna-chauhan.png",
       description:
@@ -315,11 +324,6 @@ export const SITE_DATA = {
           "Sri Ranga, 1st Floor, No. 151, Mambalam High Road, T. Nagar, Chennai - 600017",
       },
     ],
-    socials: {
-      linkedin: "https://www.linkedin.com/company/jdm-and-associates-llp",
-      facebook: "https://www.facebook.com/jdmandassociates",
-      instagram: "https://www.instagram.com/jdmandassociates",
-    },
   },
 
   clientInfo: {

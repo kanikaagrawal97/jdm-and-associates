@@ -67,8 +67,8 @@ const categories = SITE_DATA.services;
                 <div class="grid grid-cols-1 gap-4 pt-4">
                    {service.items.slice(0, 4).map(item => (
                      <div class="flex items-start gap-4 group/li">
-                        <div class="mt-2.5 shrink-0 w-1 h-1 rounded-full bg-slate-300 group-hover/li:bg-brand-accent group-hover/li:scale-150 transition-all"></div>
-                        <span class="text-xs sm:text-[13px] font-medium text-slate-700 leading-relaxed">{item}</span>
+                        <div class="mt-2 shrink-0 w-2 h-2 rounded-full bg-slate-300 group-hover/li:bg-brand-accent transition-all duration-300"></div>
+                        <span class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">{item}</span>
                      </div>
                    ))}
                 </div>

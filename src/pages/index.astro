@@ -39,11 +39,11 @@ const featuredServices = SITE_DATA.services.slice(0, 4);
              {SITE_DATA.about.overview.split('.')[0]}. {SITE_DATA.about.overview.split('.')[1]}.
           </p>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-12 py-10 border-y border-slate-50">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-8 py-4 border-y border-slate-50">
             {SITE_DATA.about.highlights.slice(0, 4).map(highlight => (
               <div class="flex items-start gap-4 group/li">
-                <div class="mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-brand-accent/50 group-hover/li:bg-brand-accent transition-all"></div>
-                <p class="text-[9px] font-black text-brand-blue uppercase tracking-widest leading-relaxed">{highlight}</p>
+                <div class="mt-2 shrink-0 w-2 h-2 rounded-full bg-brand-accent/50 group-hover/li:bg-brand-accent transition-all duration-300"></div>
+                <p class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">{highlight}</p>
               </div>
             ))}
           </div>
