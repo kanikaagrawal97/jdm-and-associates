@@ -269,6 +269,7 @@ export const SITE_DATA = {
     },
     {
       name: "Daya Savani",
+      linkedIn: "https://www.linkedin.com/in/daya-vaghasiya-9a1781242",
       role: "Associate Manager – Secretarial",
       qualification: "B. Com, ACS",
       membership: "ACS – 78345",
