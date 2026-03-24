@@ -34,7 +34,7 @@ const cleanMembership = member.membership?.trim().replace(/-\s*$/, '').trim() ||
   <!-- Top Navigation (Desktop) -->
   <div class="bg-white/80 backdrop-blur-md border-b border-slate-100 sticky top-20 z-30 py-4 hidden md:block">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-      <a href="/about" class="group flex items-center text-slate-500 hover:text-brand-accent transition-all duration-300">
+      <a href="/about" onclick="if (document.referrer.includes(window.location.host)) { event.preventDefault(); window.history.back(); }" class="group flex items-center text-slate-500 hover:text-brand-accent transition-all duration-300">
         <div class="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center mr-3 group-hover:border-brand-accent/30 group-hover:bg-brand-accent/5">
           <svg class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
         </div>
@@ -55,7 +55,7 @@ const cleanMembership = member.membership?.trim().replace(/-\s*$/, '').trim() ||
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Mobile Back Button -->
       <div class="mb-10 md:hidden animate-on-scroll">
-        <a href="/about" class="inline-flex items-center text-brand-accent font-semibold transition-colors">
+        <a href="/about" onclick="if (document.referrer.includes(window.location.host)) { event.preventDefault(); window.history.back(); }" class="inline-flex items-center text-brand-accent font-semibold transition-colors">
           <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
           Back
         </a>
