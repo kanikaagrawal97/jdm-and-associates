@@ -7,7 +7,7 @@
   --color-brand-accent-hover: #b45309; /* amber-700 */
 
   --font-sans: 'Outfit', sans-serif;
-  --font-serif: 'Playfair Display', serif;
+  --font-serif: 'Cormorant Garamond', serif;
 }
 
 @layer base {
@@ -26,6 +26,17 @@
     text-align-last: left;
     hyphens: auto;
     -webkit-hyphens: auto;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif leading-[1.1] text-brand-blue;
+  }
+
+  h1, h2 {
+    @apply tracking-[-0.02em];
+  }
+
+  :is(h1, h2, h3, h4, h5, h6).uppercase {
+    @apply tracking-[0.15em];
   }
 }
 
