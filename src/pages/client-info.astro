@@ -2,30 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 
-const clients = [
-  // priority (yellow list)
-  { name: 'ASI INDUSTRIES LIMITED', industry: 'Manufacturing', logo: '/images/clients/asi.png' },
-  { name: 'KAAVERI STEELS (I) PRIVATE LIMITED', industry: 'Steel Manufacturing', logo: '/images/clients/kaveri.png' },
-  { name: 'FAILTESOLAR INDIA PRIVATE LIMITED', industry: 'Renewable Energy', logo: '/images/clients/failtesolar.jpg' },
-  { name: 'FOCUS BUSINESS SOLUTION LIMITED', industry: 'Business Solutions', logo: '/images/clients/focus-business-solution-limite--600.png' },
-  { name: 'SERVOTECH INDIA LIMITED', industry: 'Technology', logo: '/images/clients/servotech_india_ltd__logo.jpeg' },
-  { name: 'WEAVETECH ENGINEERS LIMITED', industry: 'Engineering', logo: '/images/clients/weavetech.jpg' },
-  { name: 'SAHARA HOSPITALITY LIMITED', industry: 'Hospitality', logo: '/images/clients/sahara star.png' },
-  { name: 'MAITREYA MEDICARE LIMITED', industry: 'Healthcare', logo: '/images/clients/MAITREYA.png' },
-  { name: 'KOMBEE TECHNOLOGIES (I) PRIVATE LIMITED', industry: 'Technology', logo: '/images/clients/kombee_global_logo.jpeg' },
-  { name: 'PROLITE AUTOGLO LIMITED', industry: 'Manufacturing', logo: '/images/clients/prolite-autoglo-limited-logo-120x120.jpg' },
-  { name: 'RASIK VATIKA GROUP', industry: 'Manufacturing', logo: '/images/clients/rasik-vatika-silk-mills-private-limited-120x120.jpg' },
-  { name: 'VAAMAN ENGINEERS (INDIA) LIMITED', industry: 'Engineering', logo: '/images/clients/vaaman.jpeg' },
+import { SITE_DATA } from '../constants/siteData';
 
-  // rest (white list)
-  { name: 'ENERGY BRAMMA GROUP', industry: 'Energy', initials: 'EBG' },
-  { name: 'ENVIRO CONTROL PRIVATE LIMITED', industry: 'Environmental Control', initials: 'ECPL' },
-  { name: 'KALEEN LIFESTYLE PRIVATE LIMITED', industry: 'Lifestyle', initials: 'KLPL' },
-  { name: 'PRAJAKT GROUP', industry: 'Corporate', initials: 'PG' },
-  { name: 'PRIYANKA PROCESSORS PRIVATE LIMITED', industry: 'Manufacturing', initials: 'PPPL' },
-  { name: 'THIRUPATHI STEELS PRIVATE LIMITED', industry: 'Steel Manufacturing', initials: 'TSPL' },
-  { name: 'THAMIZHAGA CABLE TV COMMUNICATION LIMITED', industry: 'Telecommunications', logo: '/images/clients/tccl.png' },
-];
+const clients = SITE_DATA.clients;
 ---
 
 <BaseLayout 
@@ -101,13 +80,13 @@ const clients = [
         <div class="group relative overflow-hidden bg-slate-800 rounded-[2.5rem] p-12 text-white shadow-2xl transition-all duration-500 hover:-translate-y-4">
           <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-yellow-400/10 rounded-full blur-3xl group-hover:bg-yellow-400/20 transition-colors duration-500"></div>
           <p class="text-7xl font-bold text-yellow-400 mb-4 tabular-nums tracking-tighter">12+</p>
-          <p class="text-slate-300 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Years of Professional Excellence</p>
+          <p class="text-slate-300 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Years of Excellence</p>
         </div>
         
         <div class="group relative overflow-hidden bg-white border border-slate-100 rounded-[2.5rem] p-12 text-brand-blue shadow-xl transition-all duration-500 hover:-translate-y-4">
           <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-light rounded-full blur-3xl -z-10 group-hover:bg-brand-accent/5 transition-colors duration-500"></div>
           <p class="text-7xl font-bold text-brand-accent mb-4 tabular-nums tracking-tighter">3</p>
-          <p class="text-slate-500 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Major Strategic Office Locations</p>
+          <p class="text-slate-500 font-bold tracking-[0.2em] uppercase text-xs leading-relaxed">Strategic Office Locations</p>
         </div>
       </div>
 

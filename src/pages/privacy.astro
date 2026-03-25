@@ -2,40 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_DATA } from '../constants/siteData';
 
-const policies = [
-  {
-    title: "Introduction",
-    content: `JDM and Associates LLP ("we," "us," or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your personal information when you visit our website or engage our services as Corporate Governance & Compliance Consultants.`
-  },
-  {
-    title: "Information We Collect",
-    content: "We may collect personal information such as your name, email address, phone number, and professional details when you fill out contact forms, subscribe to our newsletters, or engage in professional consultations. We also collect non-personal data through cookies to improve website performance."
-  },
-  {
-    title: "How We Use Your Information",
-    content: `Your information is used to:
-    - Provide and manage our professional services.
-    - Respond to inquiries and provide customer support.
-    - Send relevant regulatory updates and newsletters.
-    - Comply with legal and statutory requirements under the Companies Act and other applicable laws.`
-  },
-  {
-    title: "Data Security",
-    content: "We implement robust technical and organizational measures to protect your data against unauthorized access, loss, or misuse. Our systems are equipped with advanced compliance software to ensure data integrity."
-  },
-  {
-    title: "Third-Party Disclosure",
-    content: "We do not sell or trade your personal information. We may share data with trusted third-party service providers who assist us in operating our website or conducting our business, provided they agree to keep this information confidential."
-  },
-  {
-    title: "Your Rights",
-    content: "You have the right to access, correct, or request the deletion of your personal information held by us. To exercise these rights, please contact our compliance officer at the details provided below."
-  },
-  {
-    title: "Changes to This Policy",
-    content: "We may update this Privacy Policy from time to time to reflect changes in our practices or regulatory requirements. We encourage you to review this page periodically."
-  }
-];
+const policies = SITE_DATA.policies;
 ---
 
 <BaseLayout title="Privacy Policy">

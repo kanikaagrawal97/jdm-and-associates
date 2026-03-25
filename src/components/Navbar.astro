@@ -8,12 +8,7 @@ const isActive = (href) => {
   return pathname.startsWith(href);
 };
 
-const links = [
-  { name: 'Home', href: '/' },
-  { name: 'About Us', href: '/about' },
-  { name: 'Services', href: '/services' },
-  { name: 'Our Clients', href: '/client-info' },
-];
+const links = SITE_DATA.navLinks;
 ---
 
 <header class="fixed top-0 w-full z-50 transition-all duration-300 glass" id="navbar">

@@ -39,15 +39,6 @@ const featuredServices = SITE_DATA.services.slice(0, 4);
              {SITE_DATA.about.overview.split('.')[0]}. {SITE_DATA.about.overview.split('.')[1]}.
           </p>
           
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-10 mb-8 py-4 border-y border-slate-50">
-            {SITE_DATA.about.highlights.slice(0, 4).map(highlight => (
-              <div class="flex items-start gap-4 group/li">
-                <div class="mt-2 shrink-0 w-2 h-2 rounded-full bg-brand-accent/50 group-hover/li:bg-brand-accent transition-all duration-300"></div>
-                <p class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">{highlight}</p>
-              </div>
-            ))}
-          </div>
-          
           <a href="/about" class="group/btn inline-flex items-center gap-10 bg-brand-blue text-white px-10 py-5 rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl shadow-brand-blue/20">
             <span class="font-black tracking-[0.4em] text-[10px] uppercase text-white">View Details</span>
             <svg class="w-5 h-5 transform group-hover/btn:translate-x-3 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
