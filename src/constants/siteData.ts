@@ -325,7 +325,7 @@ export const SITE_DATA = {
         address:
           "42, 1st Floor, Singh Industrial Estate No. 3, Ram Mandir Road, Near Movie Star Theatre, Goregaon (W), Mumbai, Maharashtra, India, 400104",
         email: "ektak@csjdm.com",
-        contactPerson: "Ekta K. Shah",
+        contactPerson: "Ekta Kansal",
       },
     ],
   },
