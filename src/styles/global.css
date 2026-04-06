@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #0f172a; /* slate-900 */
-  --color-brand-light: #f8fafc; /* slate-50 */
-  --color-brand-accent: #d97706; /* amber-600 */
-  --color-brand-accent-hover: #b45309; /* amber-700 */
+  --color-brand-blue: #1B5091; /* JDM Logo Royal Blue */
+  --color-brand-blue-dark: #133B6B; /* Darker shade for depth */
+  --color-brand-blue-light: #2A6ABD; /* Lighter shade for accents/hovers */
+  --color-brand-light: #F5F8FC; /* Cool blue-tinted off-white */
+  --color-brand-accent: #C89B3C; /* Rich gold */
+  --color-brand-accent-hover: #A67F2E; /* Darker gold */
 
   --font-sans: 'Outfit', sans-serif;
   --font-serif: 'Cormorant Garamond', serif;
@@ -60,11 +62,11 @@
 
 /* Custom Utilities */
 .glass {
-  @apply bg-white/70 backdrop-blur-md border border-white/20 shadow-lg;
+  @apply bg-white/80 backdrop-blur-md border border-brand-blue/5 shadow-lg;
 }
 
 .premium-gradient {
-  @apply bg-gradient-to-r from-brand-blue to-slate-800 text-white;
+  @apply bg-gradient-to-r from-brand-blue via-brand-blue-dark to-[#0E2B4D] text-white;
 }
 
 .text-gradient {
@@ -77,7 +79,7 @@
 }
 
 .toast {
-  @apply bg-slate-900/95 text-white px-6 py-4 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] transform -translate-y-12 opacity-0 transition-all duration-700 flex items-center gap-4 border border-white/10 backdrop-blur-xl pointer-events-auto;
+  @apply bg-brand-blue-dark/95 text-white px-6 py-4 rounded-2xl shadow-[0_20px_50px_rgba(27,80,145,0.3)] transform -translate-y-12 opacity-0 transition-all duration-700 flex items-center gap-4 border border-white/10 backdrop-blur-xl pointer-events-auto;
 }
 
 .toast.show {

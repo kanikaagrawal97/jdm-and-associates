@@ -8,25 +8,16 @@ const {
   variant = 'dark', 
   className = '' 
 } = Astro.props;
-
-const textColor = variant === 'light' ? 'text-white' : 'text-brand-blue';
-const boxBg = 'bg-brand-accent';
-const boxText = 'text-white';
 ---
 
-<div class={`flex items-center gap-3 ${className}`}>
-  <!-- Logo Mark -->
-  <div class={`${boxBg} w-11 h-11 rounded-xl flex items-center justify-center shadow-lg shadow-brand-accent/20 flex-shrink-0`}>
-    <span class={`font-serif text-lg font-black ${boxText} leading-none tracking-tighter`}>JDM</span>
-  </div>
-  
-  <!-- Logo Text -->
-  <div class="flex flex-col justify-center">
-    <div class={`font-serif text-2xl font-bold ${textColor} tracking-tight leading-none flex items-center`}>
-      Associates
-    </div>
-    <div class={`${variant === 'light' ? 'text-slate-400' : 'text-slate-500'} text-[10px] uppercase tracking-[0.3em] font-black mt-1 leading-none`}>
-      Consultancy LLP
-    </div>
-  </div>
+<div class={`flex items-center ${className}`}>
+  <a href="/" class="block">
+    <img 
+      src="/images/logo.png" 
+      alt="JDM And Associates LLP - Company Secretaries & Corporate Consultants" 
+      class={`h-12 sm:h-14 w-auto object-contain ${variant === 'light' ? 'brightness-0 invert' : ''}`}
+      loading="eager"
+      decoding="async"
+    />
+  </a>
 </div>
