@@ -34,14 +34,19 @@ import { SITE_DATA } from '../constants/siteData';
           <div class="bg-brand-blue rounded-xl p-8 text-white shadow-2xl animate-on-scroll stagger-2">
             <h3 class="font-serif text-2xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-brand-accent to-yellow-400">Our Presence</h3>
             <ul class="space-y-6">
-              {SITE_DATA.about.presence.map((loc, index) => (
-                <li class="flex items-center">
-                  <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0 border border-white/20">
-                    <span class="font-bold text-brand-accent">{index + 1}</span>
-                  </div>
-                  <span class="text-lg font-medium tracking-wide">{loc}</span>
-                </li>
-              ))}
+              {SITE_DATA.about.presence.map((loc, index) => {
+                const city = loc.split(/\s*[–-]\s*/).pop().toLowerCase();
+                return (
+                  <li class="flex items-center">
+                    <a href={`/contact#office-${city}`} class="flex items-center group transition-all duration-300 hover:translate-x-2">
+                      <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 shrink-0 border border-white/20 group-hover:bg-brand-accent group-hover:border-brand-accent transition-all duration-300">
+                        <span class="font-bold text-brand-accent group-hover:text-white transition-colors duration-300">{index + 1}</span>
+                      </div>
+                      <span class="text-lg font-medium tracking-wide group-hover:text-brand-accent transition-colors duration-300">{loc}</span>
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
             <div class="mt-10 pt-8 border-t border-white/20">
               <p class="text-slate-300 italic text-sm">Providing seamless services across major corporate hubs in India.</p>

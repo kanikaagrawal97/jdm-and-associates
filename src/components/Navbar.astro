@@ -15,8 +15,14 @@ const links = SITE_DATA.navLinks;
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       
-      <!-- Logo -->
-      <div class="flex-shrink-0 flex items-center">
+      <!-- Logo Group -->
+      <div class="flex-shrink-0 flex items-center space-x-4">
+        <img 
+          src="/images/cs_logo.png" 
+          alt="Company Secretary Logo" 
+          class="h-12 w-auto opacity-90"
+        />
+        <div class="h-8 w-px bg-brand-blue/10"></div>
         <Logo 
           variant="dark" 
           className="transform transition-transform duration-300 hover:scale-[1.02]"
@@ -116,6 +122,8 @@ const links = SITE_DATA.navLinks;
       >
         Contact Us
       </a>
+      
+
       
       <div class="mt-10 text-center">
          <p class="text-[10px] tracking-[0.2em] text-slate-400 uppercase font-medium">{SITE_DATA.firm.tagline}</p>
