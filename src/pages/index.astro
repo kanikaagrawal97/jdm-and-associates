@@ -4,8 +4,17 @@ import Hero from '../components/Hero.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import { SITE_DATA } from '../constants/siteData';
 
-// Get just a few services for the home page
-const featuredServices = SITE_DATA.services.slice(0, 4);
+// Get specific services for the home page as requested
+const featuredServiceSlugs = [
+  'incorporation-services',
+  'secretarial-audit',
+  'sebi-stock-exchange',
+  'fema-compliances'
+];
+
+const featuredServices = featuredServiceSlugs
+  .map(slug => SITE_DATA.services.find(s => s.slug === slug))
+  .filter(Boolean);
 ---
 
 <BaseLayout 
@@ -20,63 +29,14 @@ const featuredServices = SITE_DATA.services.slice(0, 4);
     isMain={true}
   />
 
-  <!-- Persistent Architectural About Section -->
-  <section class="py-24 bg-white relative overflow-hidden">
-    <!-- Fine Pattern Grid -->
-    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#1B5091 1px, transparent 1px); background-size: 40px 40px;"></div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-        
-        <div class="animate-on-scroll group">
-          <div class="h-1 w-12 bg-brand-accent mb-10 group-hover:w-24 transition-all duration-700"></div>
-          
-          <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-blue mb-8 leading-[1.05] tracking-tighter uppercase">
-            Corporate <br/> Governance <span class="italic font-light text-slate-400">Excellence.</span>
-          </h2>
-          
-          <p class="text-slate-600 mb-10 leading-relaxed text-lg font-medium max-w-xl border-l-4 border-brand-accent/10 pl-10">
-             {SITE_DATA.about.overview.split('.')[0]}. {SITE_DATA.about.overview.split('.')[1]}.
-          </p>
-          
-          <a href="/about" class="group/btn inline-flex items-center gap-10 bg-brand-blue text-white px-10 py-5 rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl shadow-brand-blue/20">
-            <span class="font-black tracking-[0.4em] text-[10px] uppercase text-white">View Details</span>
-            <svg class="w-5 h-5 transform group-hover/btn:translate-x-3 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
-        </div>
-        
-        <div class="relative animate-on-scroll stagger-2 group">
-          <!-- Dot Matrix (Hidden Behind Image) -->
-          <div class="absolute -top-6 -left-6 md:-top-12 md:-left-12 w-20 h-20 md:w-32 md:h-32 opacity-10 pointer-events-none group-hover:opacity-30 transition-opacity z-[-1]" style="background-image: radial-gradient(#1B5091 2px, transparent 2px); background-size: 10px 10px;"></div>
-
-          <!-- Persistent Architectural Frame -->
-          <div class="absolute -inset-4 border border-slate-200 rounded-[4rem] md:rounded-[8rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none -z-10 group-hover:border-brand-accent/40 transition-colors duration-700"></div>
-          
-          <!-- Persistent Architectural Portal -->
-          <div class="aspect-video lg:aspect-[4/5] relative z-10 rounded-[4rem] md:rounded-[8rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none overflow-hidden shadow-[0_50px_100px_-20px_rgba(15,23,42,0.2)] border-2 border-white">
-            <img 
-              src={SITE_DATA.images.aboutHero} 
-              alt="Corporate Excellence" 
-              loading="lazy"
-              decoding="async"
-              class="object-cover w-full h-full rounded-[4rem] md:rounded-[8rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none grayscale-[0.3] group-hover:grayscale-0 transition-all duration-[2s]"
-            />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- Minimalist Architectural Featured Services (Grid Style) -->
   <section class="py-24 bg-brand-light relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row items-end justify-between mb-24 animate-on-scroll">
         <div class="max-w-xl">
           <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-blue leading-[1.1] tracking-tighter mb-6 uppercase">
-             Strategic <span class="italic font-light text-slate-400">Compliance</span> Mandates.
+             Strategic <span class="italic font-light text-slate-400">Governance</span>
+            <br> Seamless <span class="italic font-light text-slate-400">Compliance</span>
           </h2>
           <p class="text-slate-500 text-lg font-medium leading-relaxed italic pr-12">Expert governance solutions tailored for world-class entities.</p>
         </div>
@@ -91,7 +51,7 @@ const featuredServices = SITE_DATA.services.slice(0, 4);
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        {featuredServices.slice(0, 4).map((service, index) => (
+        {featuredServices.map((service, index) => (
           <div class="group bg-white p-10 rounded-[2rem] md:rounded-[4rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none shadow-sm border border-slate-100/50 hover:shadow-2xl hover:border-brand-accent/30 transition-all duration-700 animate-on-scroll">
             
             <div class="flex items-center justify-between mb-8">
@@ -203,8 +163,8 @@ const featuredServices = SITE_DATA.services.slice(0, 4);
     <div class="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-brand-blue/[0.04] rounded-full blur-[80px] pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 animate-on-scroll relative z-10">
       <div>
-        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-blue mb-2">Ready to Ensure Complete Compliance?</h2>
-        <p class="text-slate-500 text-base">Partner with our experts for seamless corporate governance.</p>
+        <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-blue mb-2">Keep Your Business Compliant, Without the Complexity</h2>
+        <p class="text-slate-500 text-base">We handle the regulations so you can focus on running your company.</p>
       </div>
       <a href="/contact" class="shrink-0 inline-flex items-center px-8 py-4 bg-brand-accent text-white font-bold rounded-sm hover:bg-brand-accent-hover transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-300 group">
         Contact Us

@@ -12,21 +12,21 @@ export const SITE_DATA = {
   },
 
   about: {
-    overview: `JDM and Associates LLP key offerings also include setting up compliances, approvals from all the government departments including approvals from the Registrar of Companies, Ministry of Corporate Affairs, Regional Director, National Company Law Tribunal, Reserve Bank of India (RBI), Foreign Exchange Regulations, Non-banking finance companies (NBFC) etc.\n\nJDM and Associates LLP has Presence across major cities through its Head Office in Surat and Branch Offices in Mumbai and Chennai, supported by a network of strategic partners and associated firms. This enables JDM to ensure seamless execution and timely delivery of services to its valued clients across geographies.\n\nJDM is equipped with advanced ROC and XBRL compliance software, ensuring efficient, accurate, and systematic operations. It is the philosophy of our firm to be pro-active to our client’s requirements that is why it has its own motto “where client matters”. JDM services encompass the entire lifecycle of corporate entities from formation to dissolution, on a global scale.\n\nJDM has had the privilege of advising and supporting MAITREYA MEDICARE LIMITED in their journey towards launching an Initial Public Offering (IPO). As part of this engagement, we provided comprehensive assistance in handling all corporate secretarial and regulatory compliance matters integral to the IPO process including due diligence, drafting, and liaising with regulatory authorities. This engagement reflects our firm’s capability to handle high-stakes corporate transactions with efficiency, accuracy, and complete regulatory alignment. We take pride in supporting our clients in achieving strategic milestones such as public listing, with an unwavering commitment to compliance and corporate governance.`,
+    overview: `JDM and Associates LLP ("JDM") is Peer reviewed firm and is an integrated corporate service firm focused on Corporate Laws & Secretarial Compliances, Due Diligence, Certifications, XBRL filing, Startup Consultancy Services, Regulatory Authority Services, Securities Valuation Services, Secretarial Audits, Corporate Governance Audit, IPO Pre-Post Due-diligence services and related matters. It is registered as a Practicing Company Secretaries firm with the Institute of Company Secretaries of India (ICSI).\n\nJDM and Associates LLP offers comprehensive services in the area of regulatory setup, approvals, and end-to-end compliance management. The Firm specializes in obtaining necessary registrations, licenses, and approvals from various government and regulatory authorities, including but not limited to the Registrar of Companies (ROC), Regional Director (RD), National Company Law Tribunal (NCLT), and the Reserve Bank of India (RBI) Foreign Exchange Regulations, Non-banking financial Companies (NBFC) etc.\n\nJDM and Associates LLP has Presence across major cities through its Head Office in Surat and Branch Offices in Mumbai and Chennai, supported by a network of strategic partners and associated firms. This enables JDM to ensure seamless execution and timely delivery of services to its valued clients across geographies.\n\nJDM is equipped with advanced ROC and XBRL compliance software, ensuring efficient, accurate, and systematic operations. It is the philosophy of our firm to be pro-active to our client's requirements that is why it has its own motto "where client matters". JDM services encompass the entire lifecycle of corporate entities from formation to dissolution, on a global scale.\n\nJDM has had the privilege of advising and supporting MAITREYA MEDICARE LIMITED in their journey towards launching an Initial Public Offering (IPO). As part of this engagement, we provided comprehensive assistance in handling all corporate secretarial and regulatory compliance matters integral to the IPO process including due diligence, drafting, and liaising with regulatory authorities. This engagement reflects our firm's capability to handle high-stakes corporate transactions with efficiency, accuracy, and complete regulatory alignment. We take pride in supporting our clients in achieving strategic milestones such as public listing, with an unwavering commitment to compliance and corporate governance.`,
     highlights: [
       "Registered with Institute of Company Secretaries of India (ICSI)",
-      "Presence in Surat, Mumbai, and Chennai",
+      "Presence in Surat, Chennai, and Mumbai",
       "Advanced ROC & XBRL compliance software",
       "End-to-end corporate lifecycle support",
       "IPO advisory experience (e.g., MAITREYA MEDICARE LIMITED)",
     ],
-    presence: ["Head Office – Surat", "Branch – Mumbai", "Branch – Chennai"],
+    presence: ["Head Office – Surat", "Branch – Chennai", "Branch – Mumbai"],
   },
 
   services: [
     {
-      category: "Start Up Services",
-      slug: "start-up-services",
+      category: "Incorporation Services",
+      slug: "incorporation-services",
       shortSummary:
         "Comprehensive formation solutions for Public, Private, and Foreign entities including non-profit licenses.",
       image: "/images/services/incorporation.jpg",
@@ -53,6 +53,7 @@ export const SITE_DATA = {
         "Filing of petition to Regional Director for delay is registering and satisfying of charges",
         "Filing of Annual accounts, Annual return and various returns E-forms with MCA",
         "Certifications of various forms Annual return (MGT-7) and Form No. MGT-8 as per Section 92(2) of the Companies Act, 2013",
+        "Filing of Statement of Account and Annual returns of LLP",
       ],
     },
     {
@@ -125,7 +126,7 @@ export const SITE_DATA = {
       ],
     },
     {
-      category: "SEBI, Listing & Stock Exchange related matters",
+      category: "SEBI Listing & Stock Exchange related matters",
       slug: "sebi-stock-exchange",
       shortSummary:
         "Comprehensive compliance for listed companies, including takeover code and LODR guidelines.",
@@ -261,7 +262,7 @@ export const SITE_DATA = {
         "CS Mukti Nileshkumar Shah is an Associate Member of the Institute of Company Secretaries of India (ICSI) with over 3 years of practical experience which include semi-qualified exposure and more than one year of post-qualification exposure. She possesses strong expertise in handling corporate compliances for Private and Public Limited Companies, as well as LLPs. Her core experience includes incorporation of companies and LLPs (including Section 8 and Producer Companies), capital restructuring by way of right issue or private placement and changes in company structure.\nShe is proficient in annual filings, XBRL filings, maintenance of statutory registers and minutes, and ISIN-related work. She has also assisted in the secretarial audit of a listed entity. Beyond her core responsibilities, she demonstrate a strong commitment to timely compliance management and sound corporate governance by maintaining accurate and up-to-date records.",
     },
     {
-      name: "Daya Savani",
+      name: "CS Daya Savani",
       linkedIn: "https://www.linkedin.com/in/daya-vaghasiya-9a1781242",
       role: "Associate Manager – Secretarial",
       qualification: "B. Com, ACS",
@@ -270,7 +271,7 @@ export const SITE_DATA = {
         "CS Daya Savani is an Associate Member of the Institute of Company Secretaries of India (ICSI) with over 1 year of practical experience. She has secretarial work exposures in the compliance management, and secretarial practices. Skilled in handling board meetings, drafting minutes, maintaining statutory records, and ensuring adherence to regulatory requirements under the Companies Act. Experienced in liaising with regulatory authorities, managing corporate filings, and supporting senior management in decision-making processes. Demonstrates strong organizational, communication, and analytical abilities, with a proven track record of contributing to effective corporate governance and compliance frameworks.",
     },
     {
-      name: "Deepika Jain",
+      name: "CS Deepika Jain",
       linkedIn: "https://www.linkedin.com/in/deepika-jain-0284ba289",
       role: "Associate Manager – Governance",
       qualification: "B.Com, ACS",
@@ -325,6 +326,7 @@ export const SITE_DATA = {
         address:
           "42, 1st Floor, Singh Industrial Estate No. 3, Ram Mandir Road, Near Movie Star Theatre, Goregaon (W), Mumbai, Maharashtra, India, 400104",
         email: "ektak@csjdm.com",
+        phone: "+91 92136 02870",
         contactPerson: "Ekta Kansal",
       },
     ],
@@ -422,6 +424,41 @@ export const SITE_DATA = {
       industry: "Telecommunications",
       logo: "/images/clients/tccl.png",
     },
+    {
+      name: "GTX PRIVATE LIMITED",
+      industry: "Corporate",
+      initials: "GTX",
+    },
+    {
+      name: "NESTWAY TECHNOLOGIES PRIVATE LIMITED",
+      industry: "Technology",
+      initials: "NTPL",
+    },
+    {
+      name: "FINNACLE INSTITUTE PRIVATE LIMITED",
+      industry: "Education",
+      initials: "FIPL",
+    },
+    {
+      name: "S&V BUILDING DESIGNS PRIVATE LIMITED",
+      industry: "Architecture & Design",
+      initials: "SVBD",
+    },
+    {
+      name: "S.A.NAMKEEN PRIVATE LIMITED",
+      industry: "Food & Beverages",
+      initials: "SANPL",
+    },
+    {
+      name: "AALIYA SNACKS AND BITES PRIVATE LIMITED",
+      industry: "Food & Beverages",
+      initials: "ASBPL",
+    },
+    {
+      name: "WHITELION SYSTEMS PRIVATE LIMITED",
+      industry: "Technology",
+      initials: "WSPL",
+    },
   ],
 
   navLinks: [
@@ -429,6 +466,7 @@ export const SITE_DATA = {
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Our Clients", href: "/client-info" },
+    { name: "Insights", href: "/insights" },
   ],
 
   footerLinks: [
@@ -436,6 +474,7 @@ export const SITE_DATA = {
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Our Clients", href: "/client-info" },
+    { name: "Insights", href: "/insights" },
     { name: "Contact Us", href: "/contact" },
   ],
 
