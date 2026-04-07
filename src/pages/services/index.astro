@@ -15,6 +15,53 @@ const categories = SITE_DATA.services;
     isMain={false}
   />
 
+  <!-- Sticky Service Navigation -->
+  <div class="sticky top-20 z-40 bg-white shadow-sm border-b border-slate-100" id="service-nav">
+    <div class="max-w-7xl mx-auto h-16 flex items-center px-4">
+      
+      <!-- Left Arrow -->
+      <button 
+        id="scroll-left" 
+        class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-brand-blue hover:text-brand-accent transition-all duration-300 opacity-0 pointer-events-none"
+        aria-label="Scroll Left"
+      >
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <!-- Scrollable Container -->
+      <div 
+        class="flex-1 flex items-center overflow-x-auto no-scrollbar scroll-smooth gap-8 sm:gap-12 justify-center" 
+        id="nav-scroll-container"
+      >
+        {categories.map((service) => (
+          <a 
+            href={`#${service.slug}`}
+            class="whitespace-nowrap text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-slate-400 hover:text-brand-accent transition-colors duration-300 flex items-center gap-2 group/nav relative py-2"
+            data-service-nav={service.slug}
+          >
+            <span class="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/nav:bg-brand-accent transition-colors"></span>
+            {service.category}
+            <div class="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-[.active]:w-full"></div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Right Arrow -->
+      <button 
+        id="scroll-right" 
+        class="flex-shrink-0 w-12 h-12 flex items-center justify-center text-brand-blue hover:text-brand-accent transition-all duration-300 opacity-0 pointer-events-none"
+        aria-label="Scroll Right"
+      >
+        <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+
   <!-- The Architectural Cut Services -->
   <section class="py-24 bg-[#FCFCFD] relative overflow-hidden">
     <!-- Sophisticated Fine Lines -->
@@ -29,7 +76,10 @@ const categories = SITE_DATA.services;
         {categories.map((service, index) => {
           const isEven = index % 2 === 0;
           return (
-            <div class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 animate-on-scroll group`}>
+            <div 
+              id={service.slug}
+              class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 animate-on-scroll group scroll-mt-40`}
+            >
               
               <!-- High-Flair Artistic Portal (Persistent Cut) -->
               <div class="w-full lg:w-1/2 relative">
@@ -93,5 +143,117 @@ const categories = SITE_DATA.services;
 
     </div>
   </section>
+
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+
+  <script>
+    // Active Navigation Highlighting
+    const navLinks = document.querySelectorAll('[data-service-nav]');
+    const sections = document.querySelectorAll('.animate-on-scroll[id]');
+    const navContainer = document.getElementById('nav-scroll-container');
+    const scrollLeftBtn = document.getElementById('scroll-left');
+    const scrollRightBtn = document.getElementById('scroll-right');
+
+    const handleOverflow = () => {
+      if (!navContainer) return;
+      const isOverflowing = navContainer.scrollWidth > navContainer.clientWidth;
+      if (isOverflowing) {
+        navContainer.classList.remove('justify-center');
+        navContainer.classList.add('justify-start');
+      } else {
+        navContainer.classList.add('justify-center');
+        navContainer.classList.remove('justify-start');
+      }
+    };
+
+    const updateArrows = () => {
+      if (!navContainer || !scrollLeftBtn || !scrollRightBtn) return;
+      
+      const scrollLeft = navContainer.scrollLeft;
+      const maxScroll = navContainer.scrollWidth - navContainer.clientWidth;
+      
+      // Toggle Left Arrow
+      if (scrollLeft <= 10) {
+        scrollLeftBtn.classList.add('opacity-0', 'pointer-events-none');
+        scrollLeftBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        scrollLeftBtn.classList.remove('opacity-0', 'pointer-events-none');
+        scrollLeftBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+      
+      // Toggle Right Arrow
+      if (scrollLeft >= maxScroll - 10) {
+        scrollRightBtn.classList.add('opacity-0', 'pointer-events-none');
+        scrollRightBtn.classList.remove('opacity-100', 'pointer-events-auto');
+      } else {
+        scrollRightBtn.classList.remove('opacity-0', 'pointer-events-none');
+        scrollRightBtn.classList.add('opacity-100', 'pointer-events-auto');
+      }
+    };
+
+    // Scroll Handlers
+    scrollLeftBtn?.addEventListener('click', () => {
+      navContainer?.scrollBy({ left: -400, behavior: 'smooth' });
+    });
+
+    scrollRightBtn?.addEventListener('click', () => {
+      navContainer?.scrollBy({ left: 400, behavior: 'smooth' });
+    });
+
+    navContainer?.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', () => {
+      handleOverflow();
+      updateArrows();
+    });
+    
+    // Initial setup
+    handleOverflow();
+    updateArrows(); 
+
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('text-brand-accent', 'active');
+              link.classList.remove('text-slate-400');
+              link.querySelector('span')?.classList.add('bg-brand-accent');
+              link.querySelector('span')?.classList.remove('bg-slate-200');
+              
+              // Scroll the active link into view in the horizontal nav
+              if (navContainer) {
+                const linkRect = link.getBoundingClientRect();
+                const containerRect = navContainer.getBoundingClientRect();
+                const scrollLeft = linkRect.left - containerRect.left + navContainer.scrollLeft - (containerRect.width / 2) + (linkRect.width / 2);
+                navContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+              }
+            } else {
+              link.classList.remove('text-brand-accent', 'active');
+              link.classList.add('text-slate-400');
+              link.querySelector('span')?.classList.remove('bg-brand-accent');
+              link.querySelector('span')?.classList.add('bg-slate-200');
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+  </script>
 
 </BaseLayout>

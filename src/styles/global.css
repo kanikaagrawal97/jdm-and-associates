@@ -61,6 +61,24 @@
 .stagger-4 { transition-delay: 400ms; }
 
 /* Custom Utilities */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #1B5091;
+}
+
 .glass {
   @apply bg-white/80 backdrop-blur-md border border-brand-blue/5 shadow-lg;
 }
