@@ -449,27 +449,27 @@ export const SITE_DATA = {
     {
       name: "NESTWAY TECHNOLOGIES PRIVATE LIMITED",
       industry: "Technology",
-      logo: "images/clients/nest-away.png",
+      logo: "/images/clients/nest-away.png",
     },
     {
       name: "FINNACLE INSTITUTE PRIVATE LIMITED",
       industry: "Education",
-      logo: "images/clients/finnacle.png",
+      logo: "/images/clients/finnacle.png",
     },
     {
       name: "S.A.NAMKEEN PRIVATE LIMITED",
       industry: "Food & Beverages",
-      logo: "images/clients/sa-namkeen.png",
+      logo: "/images/clients/sa-namkeen.png",
     },
     {
       name: "AALIYA SNACKS AND BITES PRIVATE LIMITED",
       industry: "Food & Beverages",
-      logo: "images/clients/aaliya.jpg",
+      logo: "/images/clients/aaliya.jpg",
     },
     {
       name: "WHITELION SYSTEMS PRIVATE LIMITED",
       industry: "Technology",
-      logo: "images/clients/whitelion.jpg",
+      logo: "/images/clients/whitelion.jpg",
     },
 
     {
