@@ -63,13 +63,36 @@ const { services } = Astro.props;
                 
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-7">
                   {service.items.map(item => (
-                    <li class="flex items-start text-[15px] md:text-[17px] text-slate-600 leading-relaxed group/item animate-fadeIn">
-                      <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/10 flex items-center justify-center mr-4 mt-0.5 group-hover/item:bg-brand-accent group-hover/item:text-white transition-all duration-300">
-                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </span>
-                      <span class="group-hover/item:text-slate-900 transition-colors">{item}</span>
+                    <li class="flex flex-col text-[15px] md:text-[17px] text-slate-600 leading-relaxed group/item animate-fadeIn">
+                      {typeof item === 'string' ? (
+                        <div class="flex items-start">
+                          <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent/10 flex items-center justify-center mr-4 mt-0.5 group-hover/item:bg-brand-accent group-hover/item:text-white transition-all duration-300">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <span class="group-hover/item:text-slate-900 transition-colors">{item}</span>
+                        </div>
+                      ) : (
+                        <div class="space-y-4">
+                          <div class="flex items-center">
+                            <span class="flex-shrink-0 w-6 h-6 rounded-full bg-brand-accent flex items-center justify-center mr-4">
+                              <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+                              </svg>
+                            </span>
+                            <span class="font-bold text-brand-blue uppercase tracking-wide text-sm">{item.title}</span>
+                          </div>
+                          <ul class="ml-10 space-y-3">
+                            {item.points.map(point => (
+                              <li class="flex items-start text-sm">
+                                <span class="w-1.5 h-1.5 rounded-full bg-brand-accent/40 mt-1.5 mr-3 flex-shrink-0"></span>
+                                <span>{point}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
                     </li>
                   ))}
                 </ul>

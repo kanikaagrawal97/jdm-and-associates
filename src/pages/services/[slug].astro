@@ -11,6 +11,8 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+console.log("Service Short Summary:", service.shortSummary);
+// Trigger refresh 1
 
 // Specific Architecture Icons
 const getIconPath = (cat: string) => {
@@ -34,7 +36,7 @@ const getIconPath = (cat: string) => {
   type="article"
 >
   
-  <header class="relative pt-24 pb-20 bg-brand-light overflow-hidden">
+  <header class="relative pt-20 pb-16 bg-brand-light overflow-hidden">
      <!-- Fine Background Fine Line -->
      <div class="absolute inset-0 pointer-events-none opacity-5">
         <div class="absolute top-[10%] left-0 w-full h-px bg-slate-900"></div>
@@ -47,7 +49,7 @@ const getIconPath = (cat: string) => {
            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-blue leading-[1.05] tracking-tighter uppercase mb-8">
              {service.category}
            </h1>
-           <p class="text-slate-500 text-lg sm:text-xl font-medium leading-relaxed italic border-l-4 border-slate-100 pl-10">
+           <p class="text-slate-500 text-lg sm:text-xl font-medium leading-relaxed italic border-l-4 border-slate-100 pl-6">
              {service.shortSummary}
            </p>
         </div>
@@ -59,9 +61,9 @@ const getIconPath = (cat: string) => {
      </div>
   </header>
 
-  <section class="py-24 bg-white relative">
+  <section class="py-12 bg-white relative">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
         
         <!-- Imagery (Persistent Architectural Cut) -->
         <div class="lg:col-span-5 relative animate-on-scroll">
@@ -77,21 +79,55 @@ const getIconPath = (cat: string) => {
         </div>
 
         <!-- Detailed Mandates -->
-        <div class="lg:col-span-7 space-y-16 animate-on-scroll stagger-2">
+        <div class="lg:col-span-7 space-y-12 animate-on-scroll stagger-2">
            <div>
-              <h2 class="font-serif text-3xl font-bold text-brand-blue mb-10 tracking-tight uppercase underline decoration-brand-accent/30 decoration-4 underline-offset-8">Practice Scope</h2>
+              <h2 class="font-serif text-2xl font-bold text-brand-blue mb-8 tracking-tight uppercase underline decoration-brand-accent/30 decoration-4 underline-offset-8">Practice Scope</h2>
               
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-1">
-                {service.items.map(item => (
-                  <div class="flex items-start gap-4 group/li border-b border-slate-50 py-3 hover:border-brand-accent/20 transition-colors">
-                     <div class="mt-2 shrink-0 w-2 h-2 rounded-full bg-slate-200 group-hover/li:bg-brand-accent transition-all duration-300"></div>
-                     <p class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">{item}</p>
+              <div class="space-y-2">
+                {service.items.map((item) => (
+                  <div class="group/li border-b border-slate-50 py-3 hover:border-brand-accent/20 transition-all duration-300">
+                    {typeof item === 'string' ? (
+                      <div class="flex items-start gap-4">
+                        <div class="mt-1.5 shrink-0 text-brand-accent">
+                          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
+                        <p class="text-[15px] md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">
+                          {item}
+                        </p>
+                      </div>
+                    ) : (
+                      <div class="space-y-4">
+                        <div class="flex items-start gap-4">
+                          <div class="mt-1.5 shrink-0 text-brand-accent">
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+                            </svg>
+                          </div>
+                          <h3 class="text-[15px] md:text-base font-bold text-brand-blue leading-relaxed">
+                            {item.title}
+                          </h3>
+                        </div>
+                        
+                        <div class="ml-10 space-y-3 pt-1 border-l-2 border-slate-100 pl-6">
+                          {item.points && item.points.map((point) => (
+                            <div class="flex items-start gap-3 group/point">
+                              <div class="mt-2.5 shrink-0 w-1.5 h-1.5 rounded-full bg-slate-300 group-hover/point:bg-brand-accent transition-colors"></div>
+                              <span class="text-[14px] md:text-[15px] text-slate-600 leading-relaxed">
+                                {point}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
            </div>
 
-           <div class="flex flex-col sm:flex-row items-center gap-8  border-t border-slate-50">
+           <div class="flex flex-col sm:flex-row items-center gap-8 pt-8 border-t border-slate-50">
               <a href="/contact" class="group/cta inline-flex items-center bg-brand-blue text-white px-12 py-5 rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl">
                  <span class="font-black tracking-[0.4em] text-[10px] uppercase text-white">Consult Partner</span>
                  <svg class="w-6 h-6 ml-4 transform group-hover/cta:translate-x-3 transition-transform text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>

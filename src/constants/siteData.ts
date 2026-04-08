@@ -1,7 +1,7 @@
 export const SITE_DATA = {
   firm: {
     name: "JDM and Associates LLP",
-    tagline: "Corporate Governance & Compliance Consultant",
+    tagline: "Company Secretaries & Corporate Consultants",
     motto: "Where client matters",
     description: `JDM and Associates LLP (“JDM”) is Peer reviewed firm and is an integrated corporate service firm focused on Corporate Laws & Secretarial Compliances, Due Diligence, Certifications, XBRL filing, Startup Consultancy Services, Regulatory Authority Services, Securities Valuation Services, Secretarial Audits, Corporate Governance Audit, IPO Pre-Post Due-diligence services and related matters. It is registered as a Practicing Company Secretaries firm with the Institute of Company Secretaries of India (ICSI).`,
   },
@@ -12,6 +12,10 @@ export const SITE_DATA = {
   },
 
   about: {
+    vision:
+      "To build enduring trust by upholding the highest standards of legal excellence, ethics, and corporate governance.",
+    mission:
+      "To serve as trusted advisors, helping clients achieve operational and regulatory excellence through strategic insight, financial prudence, legal expertise, and a commitment to innovation and proactive legal service.",
     overview: `JDM and Associates LLP ("JDM") is Peer reviewed firm and is an integrated corporate service firm focused on Corporate Laws & Secretarial Compliances, Due Diligence, Certifications, XBRL filing, Startup Consultancy Services, Regulatory Authority Services, Securities Valuation Services, Secretarial Audits, Corporate Governance Audit, IPO Pre-Post Due-diligence services and related matters. It is registered as a Practicing Company Secretaries firm with the Institute of Company Secretaries of India (ICSI).\n\nJDM and Associates LLP offers comprehensive services in the area of regulatory setup, approvals, and end-to-end compliance management. The Firm specializes in obtaining necessary registrations, licenses, and approvals from various government and regulatory authorities, including but not limited to the Registrar of Companies (ROC), Regional Director (RD), National Company Law Tribunal (NCLT), and the Reserve Bank of India (RBI) Foreign Exchange Regulations, Non-banking financial Companies (NBFC) etc.\n\nJDM and Associates LLP has Presence across major cities through its Head Office in Surat and Branch Offices in Mumbai and Chennai, supported by a network of strategic partners and associated firms. This enables JDM to ensure seamless execution and timely delivery of services to its valued clients across geographies.\n\nJDM is equipped with advanced ROC and XBRL compliance software, ensuring efficient, accurate, and systematic operations. It is the philosophy of our firm to be pro-active to our client's requirements that is why it has its own motto "where client matters". JDM services encompass the entire lifecycle of corporate entities from formation to dissolution, on a global scale.\n\nJDM has had the privilege of advising and supporting MAITREYA MEDICARE LIMITED in their journey towards launching an Initial Public Offering (IPO). As part of this engagement, we provided comprehensive assistance in handling all corporate secretarial and regulatory compliance matters integral to the IPO process including due diligence, drafting, and liaising with regulatory authorities. This engagement reflects our firm's capability to handle high-stakes corporate transactions with efficiency, accuracy, and complete regulatory alignment. We take pride in supporting our clients in achieving strategic milestones such as public listing, with an unwavering commitment to compliance and corporate governance.`,
     highlights: [
       "Registered with Institute of Company Secretaries of India (ICSI)",
@@ -28,32 +32,38 @@ export const SITE_DATA = {
       category: "Incorporation Services",
       slug: "incorporation-services",
       shortSummary:
-        "Comprehensive formation solutions for Public, Private, and Foreign entities including non-profit licenses.",
+        "Comprehensive formation and structuring for domestic and foreign entities, including non-profit licenses and business consulting.",
       image: "/images/services/incorporation.jpg",
       items: [
-        "Incorporation of Public Limited/Private Limited/Section 8 License (non-profit)",
-        "Foreign Branch Offices (Including Liaison office)",
-        "Wholly Owned Subsidiaries and Joint Ventures",
+        "Incorporation and structuring services for Public Limited Companies, Private Limited Companies, Section 8 (Non-Profit) Companies, and Limited Liability Partnerships (LLPs), including establishment of Foreign Branch Offices (including Liaison Offices), Wholly Owned Subsidiaries, and Joint Ventures.",
+        "We also provide services for incorporation of foreign companies, complemented by strategy and business consulting for optimal structuring and growth.",
       ],
     },
     {
       category: "Periodical Compliances",
       slug: "periodical-compliances",
       shortSummary:
-        "Professional management of statutory registers, board meetings, and regulatory e-filing.",
+        "Ongoing statutory management, board meeting documentation, and annual regulatory filings with MCA.",
       image: "/images/services/compliances.jpg",
       items: [
-        "Preparation of and filing of e-forms and Documents",
-        "Maintenance of Companies register’s",
-        "Convening, Conducting and Documenting Board Meetings and General Body Meetings",
-        "Updation of information services relating to Name Change, Conversion (Pvt. Ltd. to Public Ltd. and vice versa / Pvt. Ltd. or Public Ltd. to LLP and vice versa), Authorised Share Capital",
-        "Shifting of Registered offices (including one state to another)",
-        "Allotment/Transfer/Transmission of Securities",
-        "Alteration in Board Members and in Main Object",
-        "Filing of petition to Regional Director for delay is registering and satisfying of charges",
-        "Filing of Annual accounts, Annual return and various returns E-forms with MCA",
-        "Certifications of various forms Annual return (MGT-7) and Form No. MGT-8 as per Section 92(2) of the Companies Act, 2013",
+        "Preparation of and filing of e-forms and Documents, Maintenance of Companies register’s, Convening, Conducting and Documenting Board Meetings and General Body Meetings.",
+        "Filing of Annual accounts, Annual return and various returns E-forms with MCA.",
+        "Certifications of various forms Annual return (MGT-7) and Form No. MGT-8 as per Section 92(2) of the Companies Act, 2013.",
         "Filing of Statement of Account and Annual returns of LLP",
+      ],
+    },
+    {
+      category: "Event Based Compliances",
+      slug: "event-based-compliances",
+      shortSummary:
+        "Expert assistance for corporate changes, securities allotment, ESG reporting, and NBFC regulatory support.",
+      image: "/images/services/compliances.jpg",
+      items: [
+        "Updation of information services relating to Name Change, Conversion (Pvt. Ltd. to Public Ltd. and vice versa / Pvt. Ltd. or Public Ltd. to LLP and vice versa), Increase of Authorised Share Capital, Shifting of Registered offices (including one state to another), Allotment/Transfer/Transmission of Securities, Alteration in Board Members and in Main Object, filing of petition to Regional Director for delay is registering and satisfying of charges.",
+        "Updation of information services relating to Name Change, Conversion (Pvt. Ltd. to LLP and vice versa, Contribution Increase, Shifting of Registered offices (including one state to another), Alteration in Main Object and addition and resignation of Partner.",
+        "Advisory and end-to-end support for ISIN allotment and dematerialisation of securities, including coordination with depositories, RTA and regulatory compliances.",
+        "Advisory and implementation support for Business Responsibility and Sustainability Reporting (BRSR) and ESG reporting, including data collation, framework alignment, and regulatory compliance.",
+        "Advisory and compliance support for Non-Banking Financial Companies (NBFCs), including RBI regulations, periodic filings, and governance requirements.",
       ],
     },
     {
@@ -71,17 +81,37 @@ export const SITE_DATA = {
       category: "FEMA (Foreign Exchange Management Act) compliances",
       slug: "fema-compliances",
       shortSummary:
-        "Expert guidance on FDI, ODI structuring, ECB norms, and RBI regulatory liaison.",
+        "Detailed guidance on FDI/ODI structuring, ECB norms, and RBI regulatory liaison.",
       image: "/images/services/fema.jpg",
       items: [
-        "Inbound & Outbound Investments: Structuring of FDI, ODI, and related reporting under RBI guidelines.",
-        "Compliance with pricing, sectoral caps, and entry/exit norms",
-        "ECB (External Commercial Borrowing): Structuring, registration, and compliance with ECB norms.",
-        "Liaising with RBI for approval routes.",
-        "Reporting & Documentation: Filing of FC-GPR, FC-TRS, FLA, Form ODI, and other FEMA-related returns.",
-        "Maintenance of necessary documentation to withstand regulatory scrutiny.",
-        "RBI Approvals & Compounding: Application preparation and liaison for transactions requiring RBI approval.",
-        "Representation and assistance in compounding of FEMA contraventions.",
+        {
+          title: "Inbound & Outbound Investments:",
+          points: [
+            "Structuring of FDI, ODI, and related reporting under RBI guidelines.;",
+            "Compliance with pricing, sectoral caps, and entry/exit norms;",
+          ],
+        },
+        {
+          title: "ECB (External Commercial Borrowing):",
+          points: [
+            "Structuring, registration, and compliance with ECB norms.",
+            "Liaising with RBI for approval routes.",
+          ],
+        },
+        {
+          title: "Reporting & Documentation:",
+          points: [
+            "Filing of FC-GPR, FC-TRS, FLA, Form ODI, and other FEMA-related returns.",
+            "Maintenance of necessary documentation to withstand regulatory scrutiny.",
+          ],
+        },
+        {
+          title: "RBI Approvals & Compounding:",
+          points: [
+            "Application preparation and liaison for transactions requiring RBI approval.",
+            "Representation and assistance in compounding of FEMA contraventions.",
+          ],
+        },
       ],
     },
     {
@@ -91,18 +121,28 @@ export const SITE_DATA = {
         "Mandated XBRL reporting for financial statements and cost audit reports to the MCA.",
       image: "/images/services/xbrl.jpg",
       items: [
-        "XBRL for Ministry of Corporate Affairs (MCA) - The MCA has mandated the reporting of financial statements for the following class of companies:",
-        "All companies listed in India and their Indian Subsidiaries;",
-        "All companies having a paid-up capital of Rs. 5 Crores and above;",
-        "All companies having a turnover of Rs. 100 Crores and above.",
-        "XBRL for Cost Audit & Compliance Reports - The Ministry of Corporate Affairs (MCA) has mandated all cost auditors and the concerned companies to file their Cost Audit Reports and Compliance Reports for the year 2011-12 onwards [that also includes the overdue reports relating to any previous year(s)] in the XBRL mode.",
+        {
+          title: "XBRL for Ministry of Corporate Affairs (MCA)",
+          points: [
+            "The MCA has mandated the reporting of financial statements for the following companies:",
+            "All companies listed in India and their Indian Subsidiaries;",
+            "All companies having a paid-up capital of Rs. 5 Crores and above;",
+            "All companies having a turnover of Rs. 100 Crores and above.",
+          ],
+        },
+        {
+          title: "XBRL for Cost Audit & Compliance Reports",
+          points: [
+            "The MCA has mandated all cost auditors and the concerned companies to file their Cost Audit Reports and Compliance Reports for the year 2011-12 onwards [that also includes the overdue reports relating to any previous year(s)] in the XBRL mode.",
+          ],
+        },
       ],
     },
     {
       category: "Corporate Restructuring and NCLT matters",
       slug: "corporate-restructuring",
       shortSummary:
-        "Strategic support for mergers, amalgamations, and complex NCLT legal matters.",
+        "Strategic support for mergers, amalgamations, NCLT petitions, and capital restructuring.",
       image: "/images/services/restructuring.jpg",
       items: [
         "Drafting and filing petitions under Sections 230–232 (Mergers, Demergers, Amalgamations)",
@@ -113,23 +153,23 @@ export const SITE_DATA = {
       ],
     },
     {
-      category: "Services to Banks & Financial Institutions",
+      category: "Services to Banks / FIs – Search",
       slug: "banking-services",
       shortSummary:
-        "Detailed search reports, legal opinions, and charge registration for financial institutions.",
+        "Detailed search reports, legal opinions, and security interest protection for lenders.",
       image: "/images/services/legal.jpg",
       items: [
         "Issue of Detailed search Reports.",
         "Opinion on various Company Law matters.",
-        "Advising on Creation and Registration of charges.",
+        "Advising on Creation, Modification and Satisfaction of charges.",
         "Advising lenders in safeguarding their interest consequent to change in the constitution of the borrower including change in management and ownership etc.",
       ],
     },
     {
-      category: "SEBI Listing & Stock Exchange related matters",
+      category: "SEBI, Listing & Stock Exchange related matters",
       slug: "sebi-stock-exchange",
       shortSummary:
-        "Comprehensive compliance for listed companies, including takeover code and LODR guidelines.",
+        "Full-spectrum compliance for listed companies, including secretarial audits and SDD compliance.",
       image: "/images/services/listing.jpg",
       items: [
         "Preparation of the Offer Documents – Public Announcement, Letter of Offer, Draft Prospectus, and Draft Letter of Offer for Rights Issues.",
@@ -152,7 +192,7 @@ export const SITE_DATA = {
       category: "Startup Registration & DPIIT Certification Services",
       slug: "startup-registration",
       shortSummary:
-        "DPIIT recognition, SISFS support, and grant assistance for emerging startups.",
+        "DPIIT recognition, Startup India portal management, and Seed Fund Scheme (SISFS) assistance.",
       image: "/images/services/startup.jpg",
       items: [
         "Preparation and submission of DPIIT Startup Recognition application.",
@@ -165,18 +205,19 @@ export const SITE_DATA = {
       category: "Agreements",
       slug: "legal-agreements",
       shortSummary:
-        "Drafting of Shareholder, Share Purchase, and Joint Venture agreements.",
+        "Expert drafting and vetting of Shareholders, JV, and business takeover agreements.",
       image: "/images/services/legal.jpg",
       items: [
         "Shareholder’s Agreement / Share Purchase Agreements.",
         "Joint Venture Agreements.",
+        "Vetting of agreements, business mapping, and drafting of takeover agreements as part of business structuring and advisory.",
       ],
     },
     {
       category: "Trademarks / Copyrights",
       slug: "trademarks-copyrights",
       shortSummary:
-        "End-to-end IPR management including application, hearings, and registration.",
+        "Comprehensive IPR management, from application and hearings to registration completion.",
       image: "/images/services/legal.jpg",
       items: [
         "Preparation / Consulting on Application and submissions including hearing.",
@@ -187,7 +228,7 @@ export const SITE_DATA = {
       category: "Closure",
       slug: "business-closure",
       shortSummary:
-        "Professional assistance in strike-off procedures and winding up under Companies Act.",
+        "End-to-end guidance on winding up and closure of Companies and LLPs under regulatory rules.",
       image: "/images/services/closure.jpg",
       items: [
         "Advising & Documentation with respect to closure of Companies u/s 248(2) of the Companies Act, 2013 and Rule 4(1) of the Companies (Removal of Names of Companies from the Register of Companies) Rules, 2016] (Defunct Companies).",
@@ -299,7 +340,7 @@ export const SITE_DATA = {
   contact: {
     emails: [
       {
-        email: "office@csjm.com",
+        email: "office@csjdm.com",
       },
     ],
     phones: [{ number: "+91 9510827803" }],
@@ -405,7 +446,37 @@ export const SITE_DATA = {
       industry: "Manufacturing",
       logo: "/images/clients/rasik-vatika-silk-mills-private-limited-120x120.jpg",
     },
+    {
+      name: "NESTWAY TECHNOLOGIES PRIVATE LIMITED",
+      industry: "Technology",
+      logo: "images/clients/nest-away.png",
+    },
+    {
+      name: "FINNACLE INSTITUTE PRIVATE LIMITED",
+      industry: "Education",
+      logo: "images/clients/finnacle.png",
+    },
+    {
+      name: "S.A.NAMKEEN PRIVATE LIMITED",
+      industry: "Food & Beverages",
+      logo: "images/clients/sa-namkeen.png",
+    },
+    {
+      name: "AALIYA SNACKS AND BITES PRIVATE LIMITED",
+      industry: "Food & Beverages",
+      logo: "images/clients/aaliya.jpg",
+    },
+    {
+      name: "WHITELION SYSTEMS PRIVATE LIMITED",
+      industry: "Technology",
+      logo: "images/clients/whitelion.jpg",
+    },
 
+    {
+      name: "THAMIZHAGA CABLE TV COMMUNICATION LIMITED",
+      industry: "Telecommunications",
+      logo: "/images/clients/tccl.png",
+    },
     { name: "ENERGY BRAMMA GROUP", industry: "Energy", initials: "EBG" },
     {
       name: "ENVIRO CONTROL PRIVATE LIMITED",
@@ -429,44 +500,14 @@ export const SITE_DATA = {
       initials: "TSPL",
     },
     {
-      name: "THAMIZHAGA CABLE TV COMMUNICATION LIMITED",
-      industry: "Telecommunications",
-      logo: "/images/clients/tccl.png",
-    },
-    {
       name: "GTX PRIVATE LIMITED",
       industry: "Corporate",
       initials: "GTX",
     },
     {
-      name: "NESTWAY TECHNOLOGIES PRIVATE LIMITED",
-      industry: "Technology",
-      initials: "NTPL",
-    },
-    {
-      name: "FINNACLE INSTITUTE PRIVATE LIMITED",
-      industry: "Education",
-      initials: "FIPL",
-    },
-    {
       name: "S&V BUILDING DESIGNS PRIVATE LIMITED",
       industry: "Architecture & Design",
       initials: "SVBD",
-    },
-    {
-      name: "S.A.NAMKEEN PRIVATE LIMITED",
-      industry: "Food & Beverages",
-      initials: "SANPL",
-    },
-    {
-      name: "AALIYA SNACKS AND BITES PRIVATE LIMITED",
-      industry: "Food & Beverages",
-      initials: "ASBPL",
-    },
-    {
-      name: "WHITELION SYSTEMS PRIVATE LIMITED",
-      industry: "Technology",
-      initials: "WSPL",
     },
   ],
 

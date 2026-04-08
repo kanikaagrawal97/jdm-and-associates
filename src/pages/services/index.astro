@@ -118,7 +118,9 @@ const categories = SITE_DATA.services;
                    {service.items.slice(0, 4).map(item => (
                      <div class="flex items-start gap-4 group/li">
                         <div class="mt-2 shrink-0 w-2 h-2 rounded-full bg-slate-300 group-hover/li:bg-brand-accent transition-all duration-300"></div>
-                        <span class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">{item}</span>
+                        <span class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">
+                          {typeof item === 'string' ? item : item.title}
+                        </span>
                      </div>
                    ))}
                 </div>
