@@ -205,20 +205,6 @@
       <circle cx="344.5231482745954" cy="288.4490761175939" r="5" stroke="#ffffff" stroke-width="1.5" style="filter: url(#glow);" class="fill-brand-blue transition-colors duration-300" />
       <title>Uttar Pradesh</title>
     </g>
-    <g class="dot-group hover:scale-110 transition-transform duration-300 origin-[523.4662761684457px_369.5441583218238px]">
-      <!-- Radar pulse -->
-      <circle cx="523.4662761684457" cy="369.5441583218238" r="2" fill="none" stroke-width="1.5" class="stroke-brand-blue">
-        <animate attributeName="r" values="2; 25" dur="2s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="1; 0" dur="2s" repeatCount="indefinite" />
-      </circle>
-      <circle cx="523.4662761684457" cy="369.5441583218238" r="2" fill="none" stroke-width="1" class="stroke-brand-blue" opacity="0">
-        <animate attributeName="r" values="2; 25" dur="2s" begin="1s" repeatCount="indefinite" />
-        <animate attributeName="opacity" values="1; 0" dur="2s" begin="1s" repeatCount="indefinite" />
-      </circle>
-      <!-- Main dot -->
-      <circle cx="523.4662761684457" cy="369.5441583218238" r="5" stroke="#ffffff" stroke-width="1.5" style="filter: url(#glow);" class="fill-brand-blue transition-colors duration-300" />
-      <title>West Bengal</title>
-    </g>
   </g>
 </svg>
 
@@ -229,4 +215,81 @@
 .dot-group:hover circle:last-of-type {
   opacity: 0.8;
 }
+path.active-state {
+  cursor: pointer;
+}
+path.active-state:hover {
+  fill: #dbeafe !important;
+}
 </style>
+
+<script>
+  function setupMapTooltips() {
+    let tooltip = document.getElementById('india-map-tooltip');
+    if (!tooltip) {
+      tooltip = document.createElement('div');
+      tooltip.id = 'india-map-tooltip';
+      
+      tooltip.innerHTML = `
+        <div id="tooltip-state" style="font-weight: bold; font-size: 13px;"></div>
+      `;
+      tooltip.className = 'fixed pointer-events-none opacity-0 transition-opacity duration-200 bg-brand-blue text-white shadow-xl rounded-md py-1.5 px-3 z-[100] transform -translate-x-1/2 -translate-y-full tracking-wide';
+      document.body.appendChild(tooltip);
+    }
+
+    const activeStatesMap = {
+      "IN-GA": "Goa",
+      "IN-GJ": "Gujarat",
+      "IN-HR": "Haryana",
+      "IN-KA": "Karnataka",
+      "IN-MP": "Madhya Pradesh",
+      "IN-MH": "Maharashtra",
+      "IN-PB": "Punjab",
+      "IN-RJ": "Rajasthan",
+      "IN-TN": "Tamil Nadu",
+      "IN-TG": "Telangana",
+      "IN-UP": "Uttar Pradesh"
+    };
+
+    const tooltipTitle = document.getElementById('tooltip-state');
+
+    const allPaths = document.querySelectorAll('.states path');
+    allPaths.forEach(path => {
+      const id = path.getAttribute('id');
+      if(activeStatesMap[id]) {
+        path.classList.add('active-state');
+        path.setAttribute('data-state', activeStatesMap[id]);
+      }
+    });
+
+    const triggerElements = document.querySelectorAll('.dot-group, path.active-state');
+
+    triggerElements.forEach(el => {
+      const titleElem = el.querySelector('title');
+      const stateName = el.getAttribute('data-state') || (titleElem ? titleElem.textContent : '');
+      if(titleElem) titleElem.remove(); // Remove default tooltip
+
+      el.addEventListener('mouseenter', () => {
+        if(stateName && tooltipTitle) {
+          tooltipTitle.textContent = stateName;
+          tooltip.style.opacity = '1';
+        }
+      });
+      el.addEventListener('mousemove', (e) => {
+        tooltip.style.left = `${e.clientX}px`;
+        tooltip.style.top = `${e.clientY - 10}px`;
+      });
+      el.addEventListener('mouseleave', () => {
+        tooltip.style.opacity = '0';
+      });
+    });
+  }
+
+  // Handle Astro page transitions and standard loads
+  document.addEventListener('astro:page-load', setupMapTooltips);
+  if (document.readyState === 'complete') {
+    setupMapTooltips();
+  } else {
+    document.addEventListener('DOMContentLoaded', setupMapTooltips);
+  }
+</script>
