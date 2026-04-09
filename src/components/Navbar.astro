@@ -16,11 +16,11 @@ const links = SITE_DATA.navLinks;
     <div class="flex justify-between items-center h-20">
       
       <!-- Logo Group -->
-      <div class="flex-shrink-0 flex items-center space-x-4 ">
+      <div class="flex-shrink-0 flex items-center space-x-2 sm:space-x-4 ">
         <img 
           src="/images/cs_logo.png" 
           alt="Company Secretary Logo" 
-          class="h-8 sm:h-10 lg:h-12 w-auto opacity-90 mb-1"
+          class="h-9 sm:h-10 lg:h-12 w-auto opacity-90 mb-1"
         />
         <div class="h-8 w-px bg-brand-blue/10"></div>
         <Logo 
@@ -36,7 +36,7 @@ const links = SITE_DATA.navLinks;
             <div class="relative group h-full flex items-center">
               <a
                 href={link.href}
-                class={`font-medium text-sm transition-colors flex items-center gap-1 py-8 ${
+                class={`font-medium text-sm transition-colors flex items-center gap-1 py-8 link-underline ${
                   isActive(link.href) 
                     ? 'text-brand-accent border-b-2 border-brand-accent font-bold' 
                     : 'text-brand-blue hover:text-brand-accent'
@@ -68,7 +68,7 @@ const links = SITE_DATA.navLinks;
           ) : (
             <a
               href={link.href}
-              class={`font-medium text-sm transition-colors py-8 ${
+              class={`font-medium text-sm transition-colors py-8 link-underline ${
                 isActive(link.href) 
                   ? 'text-brand-accent border-b-2 border-brand-accent font-bold' 
                   : 'text-brand-blue hover:text-brand-accent'
@@ -115,7 +115,7 @@ const links = SITE_DATA.navLinks;
 <div class="lg:hidden fixed inset-0 z-40 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300" id="mobile-menu-overlay"></div>
 
 <!-- Mobile Menu Drawer -->
-<div class="lg:hidden fixed top-0 right-0 bottom-0 w-[85%] max-w-sm z-50 bg-white shadow-2xl transform transition-transform duration-500 translate-x-full overflow-y-auto" id="mobile-menu">
+<div class="lg:hidden fixed top-0 right-0 bottom-0 w-[80%] max-w-xs z-50 bg-white shadow-2xl transform transition-transform duration-500 translate-x-full overflow-y-auto" id="mobile-menu">
   <div class="flex flex-col h-full relative p-8">
     
     <!-- Header (inside drawer) -->
@@ -200,77 +200,75 @@ const links = SITE_DATA.navLinks;
 </div>
 
 <script>
-  // Add scoll effect to navbar
-  const navbar = document.getElementById('navbar');
-  
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 10) {
-      navbar?.classList.add('shadow-md');
-      navbar?.classList.replace('bg-white/70', 'bg-white/90');
-    } else {
-      navbar?.classList.remove('shadow-md');
-      navbar?.classList.replace('bg-white/90', 'bg-white/70');
-    }
-  });
+  function initNavbar() {
+    const navbar = document.getElementById('navbar');
+    const mobileBtn = document.getElementById('mobile-menu-button');
+    const mobileClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-menu-overlay');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    const servicesToggle = document.getElementById('mobile-services-toggle');
+    const servicesMenu = document.getElementById('mobile-services-menu');
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
 
-  // Mobile menu toggle
-  const mobileBtn = document.getElementById('mobile-menu-button');
-  const mobileClose = document.getElementById('mobile-menu-close');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileOverlay = document.getElementById('mobile-menu-overlay');
-  const iconOpen = document.getElementById('menu-icon-open');
-  const iconClose = document.getElementById('menu-icon-close');
-  const navbarBg = document.getElementById('navbar');
+    // Scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar?.classList.add('shadow-lg', 'bg-white/95');
+        navbar?.classList.remove('bg-white/70');
+      } else {
+        navbar?.classList.remove('shadow-lg', 'bg-white/95');
+        navbar?.classList.add('bg-white/70');
+      }
+    });
 
-  const toggleMenu = (open) => {
-    const isCurrentlyClosed = mobileMenu?.classList.contains('translate-x-full');
-    const shouldOpen = typeof open === 'boolean' ? open : isCurrentlyClosed;
+    const toggleMenu = (open) => {
+      const isCurrentlyClosed = mobileMenu?.classList.contains('translate-x-full');
+      const shouldOpen = typeof open === 'boolean' ? open : isCurrentlyClosed;
 
-    if (shouldOpen) {
-      mobileMenu?.classList.remove('translate-x-full');
-      mobileMenu?.classList.add('translate-x-0');
-      mobileOverlay?.classList.remove('pointer-events-none', 'opacity-0');
-      mobileOverlay?.classList.add('opacity-100');
-      iconOpen?.classList.add('hidden');
-      iconClose?.classList.remove('hidden');
-      navbarBg?.classList.replace('bg-white/70', 'bg-white');
-      document.body.style.overflow = 'hidden'; // prevent scrolling
-    } else {
-      mobileMenu?.classList.add('translate-x-full');
-      mobileMenu?.classList.remove('translate-x-0');
-      mobileOverlay?.classList.add('pointer-events-none', 'opacity-0');
-      mobileOverlay?.classList.remove('opacity-100');
-      iconOpen?.classList.remove('hidden');
-      iconClose?.classList.add('hidden');
-      if(window.scrollY < 10) navbarBg?.classList.replace('bg-white', 'bg-white/70');
-      document.body.style.overflow = '';
-    }
-  };
+      if (shouldOpen) {
+        mobileMenu?.classList.remove('translate-x-full');
+        mobileMenu?.classList.add('translate-x-0');
+        mobileOverlay?.classList.remove('pointer-events-none', 'opacity-0');
+        mobileOverlay?.classList.add('opacity-100');
+        iconOpen?.classList.add('hidden');
+        iconClose?.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu?.classList.add('translate-x-full');
+        mobileMenu?.classList.remove('translate-x-0');
+        mobileOverlay?.classList.add('pointer-events-none', 'opacity-0');
+        mobileOverlay?.classList.remove('opacity-100');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    };
 
-  mobileBtn?.addEventListener('click', () => toggleMenu());
-  mobileClose?.addEventListener('click', () => toggleMenu(false));
-  mobileOverlay?.addEventListener('click', () => toggleMenu(false));
-  
-  // Mobile Services Toggle
-  const servicesToggle = document.getElementById('mobile-services-toggle');
-  const servicesMenu = document.getElementById('mobile-services-menu');
-  
-  servicesToggle?.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    const isHidden = servicesMenu?.classList.contains('hidden');
-    if (isHidden) {
-      servicesMenu?.classList.remove('hidden');
-      servicesToggle.style.transform = 'rotate(180deg)';
-    } else {
-      servicesMenu?.classList.add('hidden');
-      servicesToggle.style.transform = 'rotate(0deg)';
-    }
-  });
+    mobileBtn?.addEventListener('click', () => toggleMenu());
+    mobileClose?.addEventListener('click', () => toggleMenu(false));
+    mobileOverlay?.addEventListener('click', () => toggleMenu(false));
 
-  // Close menu when clicking a link
-  const mobileLinks = mobileMenu?.querySelectorAll('a');
-  mobileLinks?.forEach(link => {
-    link.addEventListener('click', () => toggleMenu(false));
-  });
+    servicesToggle?.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isHidden = servicesMenu?.classList.contains('hidden');
+      if (isHidden) {
+        servicesMenu?.classList.remove('hidden');
+        servicesToggle.style.transform = 'rotate(180deg)';
+      } else {
+        servicesMenu?.classList.add('hidden');
+        servicesToggle.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
+    });
+  }
+
+  // Initialize
+  initNavbar();
+  document.addEventListener('astro:after-swap', initNavbar);
 </script>

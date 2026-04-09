@@ -32,13 +32,13 @@ const categories = SITE_DATA.services;
 
       <!-- Scrollable Container -->
       <div 
-        class="flex-1 flex items-center overflow-x-auto no-scrollbar scroll-smooth gap-8 sm:gap-12 justify-center" 
+        class="flex-1 flex items-center overflow-x-auto no-scrollbar gap-8 sm:gap-12 justify-start snap-x snap-mandatory" 
         id="nav-scroll-container"
       >
         {categories.map((service) => (
           <a 
             href={`#${service.slug}`}
-            class="whitespace-nowrap text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-slate-400 hover:text-brand-accent transition-colors duration-300 flex items-center gap-2 group/nav relative py-2"
+            class="whitespace-nowrap text-[10px] sm:text-[11px] font-black uppercase tracking-[0.25em] text-slate-400 hover:text-brand-accent transition-colors duration-300 flex items-center gap-2 group/nav relative py-2 snap-center [scroll-snap-stop:always] shrink-0"
             data-service-nav={service.slug}
           >
             <span class="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover/nav:bg-brand-accent transition-colors"></span>
@@ -63,41 +63,40 @@ const categories = SITE_DATA.services;
   </div>
 
   <!-- The Architectural Cut Services -->
-  <section class="py-24 bg-[#FCFCFD] relative overflow-hidden">
+  <section class="py-16 md:py-24 bg-[#FCFCFD] relative overflow-hidden transition-colors duration-700" id="services-grid">
     <!-- Sophisticated Fine Lines -->
     <div class="absolute inset-0 pointer-events-none opacity-10">
-       <div class="absolute top-0 left-[20%] h-full w-px bg-slate-300"></div>
-       <div class="absolute top-0 left-[80%] h-full w-px bg-slate-300"></div>
+       <div class="absolute top-0 left-[20%] h-full w-px bg-slate-400"></div>
+       <div class="absolute top-0 left-[80%] h-full w-px bg-slate-400"></div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
-      <div class="space-y-40">
+      <div class="space-y-24 md:space-y-40">
         {categories.map((service, index) => {
           const isEven = index % 2 === 0;
           return (
             <div 
               id={service.slug}
-              class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 animate-on-scroll group scroll-mt-40`}
+              class={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-16 lg:gap-32 animate-on-scroll ${isEven ? 'slide-in-left' : 'slide-in-right'} group scroll-mt-40`}
             >
               
-              <!-- High-Flair Artistic Portal (Persistent Cut) -->
-              <div class="w-full lg:w-1/2 relative">
-                <!-- Static Outline Frame (Persistent Cut) -->
-                <div class="absolute -inset-4 border border-slate-200 rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none -z-10 transition-colors duration-500 group-hover:border-brand-accent/30"></div>
+              <!-- High-Flair Artistic Portal -->
+              <div class="w-full lg:w-1/2 relative group/img">
+                <!-- Static Outline Frame -->
+                <div class="absolute -inset-4 border border-slate-200 rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none -z-10 transition-all duration-700 group-hover:border-brand-accent/30 group-hover:scale-105"></div>
                 
-                <!-- Dot Matrix (Hidden Behind Image) -->
-                <div class={`absolute -top-6 md:-top-10 ${isEven ? '-left-6 md:-left-10' : '-right-6 md:-right-10'} w-20 h-20 md:w-32 md:h-32 opacity-10 pointer-events-none group-hover:opacity-30 transition-opacity z-[-5]`} style="background-image: radial-gradient(#1B5091 2px, transparent 2px); background-size: 10px 10px;"></div>
-
-                <!-- Main Architectural Image (Persistent Cut) -->
+                <!-- Main Architectural Image -->
                 <div class="relative z-10 aspect-[16/11] overflow-hidden rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none shadow-2xl border-4 border-white bg-slate-50">
                   <img 
                     src={service.image} 
                     alt={service.category} 
-                    class="w-full h-full object-cover rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none transition-all duration-[2s] grayscale-[0.3] group-hover:grayscale-0"
+                    class="w-full h-full object-cover rounded-[4rem] lg:rounded-[10rem] rounded-tr-none lg:rounded-tr-none rounded-bl-none lg:rounded-bl-none transition-all duration-1000 grayscale-[0.15] md:grayscale-[0.3] group-hover:grayscale-0 group-hover:scale-110 parallax-image"
                     loading="lazy"
                     decoding="async"
                   />
+                  <!-- Glass overlay on hover -->
+                  <div class="absolute inset-0 bg-brand-blue/10 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
               </div>
 
@@ -110,15 +109,15 @@ const categories = SITE_DATA.services;
                   </h2>
                 </div>
 
-                <p class="text-slate-600 text-lg leading-relaxed font-medium border-l-4 border-brand-accent/10 pl-10 max-w-xl">
+                <p class="text-slate-600 text-lg leading-relaxed font-medium border-l-4 border-brand-accent/10 pl-10 max-w-xl italic">
                   {service.shortSummary}
                 </p>
 
                 <div class="grid grid-cols-1 gap-4 pt-4">
                    {service.items.slice(0, 4).map(item => (
                      <div class="flex items-start gap-4 group/li">
-                        <div class="mt-2 shrink-0 w-2 h-2 rounded-full bg-slate-300 group-hover/li:bg-brand-accent transition-all duration-300"></div>
-                        <span class="text-sm md:text-base font-medium text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">
+                        <div class="mt-2 shrink-0 w-2.5 h-2.5 rounded-full bg-slate-200 group-hover/li:bg-brand-accent group-hover/li:scale-125 transition-all duration-300"></div>
+                        <span class="text-sm md:text-base font-semibold text-slate-700 leading-relaxed group-hover/li:text-brand-blue transition-colors duration-300">
                           {typeof item === 'string' ? item : item.title}
                         </span>
                      </div>
@@ -128,7 +127,7 @@ const categories = SITE_DATA.services;
                 <div class="pt-6">
                   <a 
                     href={`/services/${service.slug}`} 
-                    class="group/cta inline-flex items-center gap-10 bg-brand-blue text-white px-10 py-5 rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl"
+                    class="group/cta inline-flex items-center gap-10 bg-brand-blue text-white px-8 md:px-10 py-4 md:py-5 rounded-full hover:bg-brand-accent transition-all duration-500 shadow-xl hover:-translate-y-1"
                   >
                     <span class="font-black tracking-[0.4em] text-[10px] uppercase text-white">View Details</span>
                     <svg class="w-5 h-5 transform group-hover/cta:translate-x-3 transition-transform text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -154,108 +153,108 @@ const categories = SITE_DATA.services;
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    .parallax-image {
+      will-change: transform;
+    }
   </style>
 
   <script>
-    // Active Navigation Highlighting
-    const navLinks = document.querySelectorAll('[data-service-nav]');
-    const sections = document.querySelectorAll('.animate-on-scroll[id]');
-    const navContainer = document.getElementById('nav-scroll-container');
-    const scrollLeftBtn = document.getElementById('scroll-left');
-    const scrollRightBtn = document.getElementById('scroll-right');
+    function initServices() {
+      const navLinks = document.querySelectorAll('[data-service-nav]');
+      const sections = document.querySelectorAll('.animate-on-scroll[id]');
+      const navContainer = document.getElementById('nav-scroll-container');
+      const scrollLeftBtn = document.getElementById('scroll-left');
+      const scrollRightBtn = document.getElementById('scroll-right');
+      const servicesSection = document.getElementById('services-grid');
 
-    const handleOverflow = () => {
-      if (!navContainer) return;
-      const isOverflowing = navContainer.scrollWidth > navContainer.clientWidth;
-      if (isOverflowing) {
-        navContainer.classList.remove('justify-center');
-        navContainer.classList.add('justify-start');
-      } else {
-        navContainer.classList.add('justify-center');
-        navContainer.classList.remove('justify-start');
-      }
-    };
+      const handleOverflow = () => {
+        if (!navContainer) return;
+        const isOverflowing = navContainer.scrollWidth > navContainer.clientWidth;
+        if (isOverflowing) {
+          navContainer.classList.remove('justify-center');
+          navContainer.classList.add('justify-start');
+        } else {
+          navContainer.classList.add('justify-center');
+          navContainer.classList.remove('justify-start');
+        }
+      };
 
-    const updateArrows = () => {
-      if (!navContainer || !scrollLeftBtn || !scrollRightBtn) return;
-      
-      const scrollLeft = navContainer.scrollLeft;
-      const maxScroll = navContainer.scrollWidth - navContainer.clientWidth;
-      
-      // Toggle Left Arrow
-      if (scrollLeft <= 10) {
-        scrollLeftBtn.classList.add('opacity-0', 'pointer-events-none');
-        scrollLeftBtn.classList.remove('opacity-100', 'pointer-events-auto');
-      } else {
-        scrollLeftBtn.classList.remove('opacity-0', 'pointer-events-none');
-        scrollLeftBtn.classList.add('opacity-100', 'pointer-events-auto');
-      }
-      
-      // Toggle Right Arrow
-      if (scrollLeft >= maxScroll - 10) {
-        scrollRightBtn.classList.add('opacity-0', 'pointer-events-none');
-        scrollRightBtn.classList.remove('opacity-100', 'pointer-events-auto');
-      } else {
-        scrollRightBtn.classList.remove('opacity-0', 'pointer-events-none');
-        scrollRightBtn.classList.add('opacity-100', 'pointer-events-auto');
-      }
-    };
+      const updateArrows = () => {
+        if (!navContainer || !scrollLeftBtn || !scrollRightBtn) return;
+        const scrollLeft = navContainer.scrollLeft;
+        const maxScroll = navContainer.scrollWidth - navContainer.clientWidth;
+        
+        scrollLeftBtn.classList.toggle('opacity-0', scrollLeft <= 10);
+        scrollLeftBtn.classList.toggle('pointer-events-none', scrollLeft <= 10);
+        scrollRightBtn.classList.toggle('opacity-0', scrollLeft >= maxScroll - 10);
+        scrollRightBtn.classList.toggle('pointer-events-none', scrollLeft >= maxScroll - 10);
+      };
 
-    // Scroll Handlers
-    scrollLeftBtn?.addEventListener('click', () => {
-      navContainer?.scrollBy({ left: -400, behavior: 'smooth' });
-    });
+      scrollLeftBtn?.addEventListener('click', () => navContainer?.scrollBy({ left: -400, behavior: 'smooth' }));
+      scrollRightBtn?.addEventListener('click', () => navContainer?.scrollBy({ left: 400, behavior: 'smooth' }));
+      navContainer?.addEventListener('scroll', updateArrows);
 
-    scrollRightBtn?.addEventListener('click', () => {
-      navContainer?.scrollBy({ left: 400, behavior: 'smooth' });
-    });
+      // Intersection Observer for active nav and background change
+      const observerOptions = {
+        root: null,
+        rootMargin: '-45% 0px -45% 0px', // Target the very center of the viewport
+        threshold: 0
+      };
 
-    navContainer?.addEventListener('scroll', updateArrows);
-    window.addEventListener('resize', () => {
+      const sectionColors = [
+        'bg-[#FCFCFD]', // default
+        'bg-[#F8FAFC]', 
+        'bg-[#F1F5F9]',
+        'bg-[#F8FAFC]',
+        'bg-[#FCFCFD]'
+      ];
+
+      const observer = new IntersectionObserver((entries) => {
+        // Filter only intersecting entries and pick the one most likely to be in focus
+        const intersecting = entries.filter(e => e.isIntersecting);
+        if (intersecting.length === 0) return;
+        
+        // If multiple are intersecting, pick the one that just entered or is more prominent
+        const entry = intersecting[intersecting.length - 1];
+        const id = entry.target.getAttribute('id');
+        const index = Array.from(sections).indexOf(entry.target);
+        
+        // Change background color
+        if (servicesSection) {
+          const colorClass = sectionColors[index % sectionColors.length];
+          servicesSection.className = `py-16 md:py-24 relative overflow-hidden transition-colors duration-1000 ${colorClass}`;
+        }
+
+        navLinks.forEach(link => {
+          const isActive = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('text-brand-accent', isActive);
+          link.classList.toggle('active', isActive);
+          link.classList.toggle('text-slate-400', !isActive);
+          link.querySelector('span')?.classList.toggle('bg-brand-accent', isActive);
+          link.querySelector('span')?.classList.toggle('bg-slate-200', !isActive);
+          
+          if (isActive && navContainer) {
+            const linkRect = link.getBoundingClientRect();
+            const containerRect = navContainer.getBoundingClientRect();
+            const scrollLeftValue = linkRect.left - containerRect.left + navContainer.scrollLeft - (containerRect.width / 2) + (linkRect.width / 2);
+            
+            const diff = Math.abs(navContainer.scrollLeft - scrollLeftValue);
+            if (diff > 2) { // Tighter tolerance
+              navContainer.scrollTo({ left: scrollLeftValue, behavior: 'smooth' });
+            }
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => observer.observe(section));
+
       handleOverflow();
       updateArrows();
-    });
-    
-    // Initial setup
-    handleOverflow();
-    updateArrows(); 
+      window.addEventListener('resize', () => { handleOverflow(); updateArrows(); });
+    }
 
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const id = entry.target.getAttribute('id');
-          navLinks.forEach(link => {
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('text-brand-accent', 'active');
-              link.classList.remove('text-slate-400');
-              link.querySelector('span')?.classList.add('bg-brand-accent');
-              link.querySelector('span')?.classList.remove('bg-slate-200');
-              
-              // Scroll the active link into view in the horizontal nav
-              if (navContainer) {
-                const linkRect = link.getBoundingClientRect();
-                const containerRect = navContainer.getBoundingClientRect();
-                const scrollLeft = linkRect.left - containerRect.left + navContainer.scrollLeft - (containerRect.width / 2) + (linkRect.width / 2);
-                navContainer.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-              }
-            } else {
-              link.classList.remove('text-brand-accent', 'active');
-              link.classList.add('text-slate-400');
-              link.querySelector('span')?.classList.remove('bg-brand-accent');
-              link.querySelector('span')?.classList.add('bg-slate-200');
-            }
-          });
-        }
-      });
-    }, observerOptions);
-
-    sections.forEach(section => observer.observe(section));
+    // Initialize
+    initServices();
+    document.addEventListener('astro:after-swap', initServices);
   </script>
-
 </BaseLayout>

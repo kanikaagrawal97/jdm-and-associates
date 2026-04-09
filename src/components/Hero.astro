@@ -18,40 +18,40 @@ const {
 } = Astro.props;
 ---
 
-<section class={`relative w-full ${isMain ? 'min-h-[70vh]' : 'min-h-[40vh]'} flex items-center justify-center overflow-hidden`}>
+<section class={`relative w-full ${isMain ? 'min-h-[60vh] lg:min-h-[70vh]' : 'min-h-[40vh]'} flex items-center justify-center overflow-hidden`}>
   <!-- Background Image & Overlay -->
-  <div class="absolute inset-0 z-0 bg-brand-blue">
+  <div class="absolute inset-0 z-0 bg-brand-blue overflow-hidden">
     <img 
       src={image} 
       alt="Corporate Office Background" 
       fetchpriority="high"
       loading="eager"
       decoding="async"
-      class="w-full h-full object-cover object-center"
+      class="w-full h-full object-cover object-center animate-slow-zoom"
     />
     <div class="absolute inset-0 bg-brand-blue/80 mix-blend-multiply"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-brand-blue via-brand-blue/60 to-transparent"></div>
   </div>
 
   <!-- Content -->
-  <div class={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white w-full ${isMain ? 'py-16 lg:py-20' : (showSocials ? 'pt-16 pb-32 lg:pt-20 lg:pb-32' : 'py-12 lg:py-16')}`}>
+  <div class={`relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white w-full ${isMain ? 'py-12 md:py-16 lg:py-20' : (showSocials ? 'pt-16 pb-32 lg:pt-20 lg:pb-32' : 'py-10 md:py-12 lg:py-16')}`}>
     {isMain && (
-      <span class="inline-block py-1 px-3 rounded-full bg-brand-accent/20 border border-brand-accent/50 text-brand-accent font-medium text-xs mb-6 animate-on-scroll is-visible uppercase tracking-widest">
+      <span class="inline-block py-1 px-3 rounded-full bg-brand-accent/20 border border-brand-accent/50 text-brand-accent font-medium text-xs mb-6 animate-on-scroll scale-in uppercase tracking-widest">
         {SITE_DATA.firm.tagline}
       </span>
     )}
     
-    <h1 class={`font-serif font-bold tracking-tight mb-6 animate-on-scroll stagger-1 is-visible ${isMain ? 'text-4xl sm:text-5xl lg:text-6xl' : 'text-3xl sm:text-4xl lg:text-5xl'}`}>
+    <h1 class={`font-serif font-bold tracking-tight mb-6 animate-on-scroll stagger-1 ${isMain ? 'text-4xl sm:text-5xl lg:text-6xl' : 'text-3xl sm:text-4xl lg:text-5xl'}`}>
       {title}
     </h1>
     
-    <p class={`mx-auto text-slate-200 animate-on-scroll stagger-2 is-visible ${isMain ? 'max-w-2xl text-lg leading-relaxed mb-10' : (showSocials ? 'max-w-xl text-lg mb-8' : 'max-w-xl text-lg mb-0')}`}>
+    <p class={`mx-auto text-slate-200 animate-on-scroll stagger-2 ${isMain ? 'max-w-2xl text-lg leading-relaxed mb-8 md:mb-10' : (showSocials ? 'max-w-xl text-lg mb-8' : 'max-w-xl text-lg mb-0')}`}>
       {subtitle}
     </p>
 
 
     {isMain && (
-      <div class="flex flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 animate-on-scroll stagger-3 is-visible">
+      <div class="flex flex-row flex-wrap justify-center items-center gap-4 sm:gap-6 animate-on-scroll stagger-3">
         <a 
           href="/about" 
           class="group relative inline-flex items-center gap-3 px-8 py-3 bg-white/10 hover:bg-white border border-white/20 hover:border-white text-white hover:text-brand-blue font-bold rounded-full transition-all duration-500 hover:-translate-y-1 whitespace-nowrap backdrop-blur-sm"
@@ -77,3 +77,13 @@ const {
     )}
   </div>
 </section>
+
+<style>
+  @keyframes slow-zoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+  }
+  .animate-slow-zoom {
+    animation: slow-zoom 20s ease-in-out infinite alternate;
+  }
+</style>

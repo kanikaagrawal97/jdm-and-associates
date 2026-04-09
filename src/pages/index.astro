@@ -30,17 +30,21 @@ const featuredServices = featuredServiceSlugs
   />
 
   <!-- Minimalist Architectural Featured Services (Grid Style) -->
-  <section class="py-24 bg-brand-light relative overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row items-end justify-between mb-24 animate-on-scroll">
+  <section class="py-10 md:py-24 bg-brand-light relative overflow-hidden">
+    <!-- Decorative Graphics -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-brand-blue/5 rounded-full blur-3xl -mr-48 -mt-48 pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-brand-accent/5 rounded-full blur-3xl -ml-48 -mb-48 pointer-events-none"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col md:flex-row items-end justify-between mb-10 md:mb-24 animate-on-scroll slide-in-left">
         <div class="max-w-xl">
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-blue leading-[1.1] tracking-tighter mb-6 uppercase">
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-blue leading-[1.1] tracking-tighter mb-3 md:mb-6 uppercase">
              Strategic <span class="italic font-light text-slate-400">Governance</span>
             <br> Seamless <span class="italic font-light text-slate-400">Compliance</span>
           </h2>
-          <p class="text-slate-500 text-lg font-medium leading-relaxed italic pr-12">Expert governance solutions tailored for world-class entities.</p>
+          <p class="text-slate-500 text-lg font-medium leading-relaxed italic md:pr-12">Expert governance solutions tailored for world-class entities.</p>
         </div>
-        <div class="mt-8 md:mt-0">
+        <div class="mt-8 md:mt-0 animate-on-scroll slide-in-right">
           <a href="/services" class="inline-flex items-center gap-6 group/link text-brand-blue font-black tracking-[0.2em] text-[10px] uppercase border-b border-brand-accent/30 hover:border-brand-blue transition-all pb-2">
             Explore All Practice Units
             <svg class="w-5 h-5 transform group-hover/link:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,9 +54,9 @@ const featuredServices = featuredServiceSlugs
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
         {featuredServices.map((service, index) => (
-          <div class="group bg-white p-10 rounded-[2rem] md:rounded-[4rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none shadow-sm border border-slate-100/50 hover:shadow-2xl hover:border-brand-accent/30 transition-all duration-700 animate-on-scroll">
+          <div class={`group bg-white p-7 md:p-10 rounded-[2rem] md:rounded-[4rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none shadow-sm border border-slate-100/50 hover:shadow-2xl hover:border-brand-accent/30 transition-all duration-700 animate-on-scroll ${index % 2 === 0 ? 'slide-in-left' : 'slide-in-right'} stagger-${index + 1} hover-lift hover-glow`}>
             
             <div class="flex items-center justify-between mb-8">
                <div class="h-1 w-12 bg-slate-100 group-hover:w-20 group-hover:bg-brand-accent transition-all duration-500"></div>
@@ -65,32 +69,62 @@ const featuredServices = featuredServiceSlugs
                 alt={service.category} 
                 loading="lazy"
                 decoding="async"
-                class="w-full h-full object-cover rounded-[1.5rem] md:rounded-[3rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none transition-all duration-[2s] grayscale-[0.4] group-hover:grayscale-0"
+                class="w-full h-full object-cover rounded-[1.5rem] md:rounded-[3rem] rounded-tr-none md:rounded-tr-none rounded-bl-none md:rounded-bl-none transition-all duration-[2s] grayscale-[0.2] md:grayscale-[0.4] group-hover:grayscale-0 group-hover:scale-110"
               />
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-4 transform transition-all duration-500 group-hover:translate-x-2">
               <h3 class="font-serif text-2xl font-bold text-brand-blue group-hover:text-brand-accent transition-colors uppercase">
                 {service.category}
               </h3>
-              <p class="text-slate-500 text-sm leading-relaxed border-l-2 border-brand-accent/10 pl-6 pr-6">
+              <p class="text-slate-500 text-sm leading-relaxed border-l-2 border-brand-accent/10 group-hover:border-brand-accent/60 pl-6 pr-6 transition-colors duration-500">
                 {service.shortSummary}
               </p>
             </div>
 
-            <div class="mt-8 pt-8 border-t border-slate-50">
+            <div class="mt-8 pt-8 border-t border-slate-50 overflow-hidden">
                <a 
                 href={`/services/${service.slug}`} 
-                class="inline-flex items-center gap-4 text-brand-blue text-[10px] font-black uppercase tracking-[0.3em] group-hover:gap-6 transition-all"
+                class="inline-flex items-center text-brand-blue text-[10px] font-black uppercase tracking-[0.3em] group-hover:text-brand-accent transition-colors duration-300 group/link"
                >
-                View Details
-                <svg class="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                <span class="transform transition-transform duration-500 group-hover/link:translate-x-2">View Details</span>
+                <svg class="w-5 h-5 ml-3 transform transition-transform duration-500 group-hover/link:translate-x-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                </a>
             </div>
           </div>
         ))}
       </div>
       
+    </div>
+  </section>
+
+  <!-- Impact & Stats Section -->
+  <section class="py-20 bg-brand-blue relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-full h-full" style="background-image: url('data:image/svg+xml,%3Csvg width=\"20\" height=\"20\" viewBox=\"0 0 20 20\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cpath d=\"M0 0h20v20H0V0zm1 1h18v18H1V1z\" fill=\"%23ffffff\" fill-opacity=\"0.1\" fill-rule=\"evenodd\"/%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center text-white">
+        <div class="space-y-2 animate-on-scroll scale-in stagger-1">
+          <div class="text-4xl md:text-6xl font-serif font-bold text-brand-accent">
+            <span class="count-up" data-count="20" data-suffix="+">0</span>
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.3em] font-black text-slate-300">Years of Legacy</p>
+        </div>
+        <div class="space-y-2 animate-on-scroll scale-in stagger-2">
+          <div class="text-4xl md:text-6xl font-serif font-bold text-brand-accent">
+            <span class="count-up" data-count="500" data-suffix="+">0</span>
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.3em] font-black text-slate-300">Global Clients</p>
+        </div>
+        <div class="space-y-2 animate-on-scroll scale-in stagger-3">
+          <div class="text-4xl md:text-6xl font-serif font-bold text-brand-accent">
+            <span class="count-up" data-count="3" data-suffix="">0</span>
+          </div>
+          <p class="text-[10px] uppercase tracking-[0.3em] font-black text-slate-300">Offices India-wide</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -105,15 +139,27 @@ const featuredServices = featuredServiceSlugs
   </style>
 
   <!-- Leadership Section -->
-  <section class="py-24 bg-white border-t border-slate-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 animate-on-scroll">
+  <section class="py-16 md:py-24 bg-white border-t border-slate-100 relative overflow-hidden">
+    <!-- Background Accents -->
+    <div class="absolute left-0 top-0 w-full h-full opacity-[0.03] pointer-events-none">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-16 animate-on-scroll slide-in-left">
         <div class="max-w-2xl">
           <span class="text-brand-accent font-semibold tracking-wider uppercase text-sm mb-4 block">Our People</span>
           <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl font-bold text-brand-blue mb-6">Expert Leadership Team</h2>
           <p class="text-slate-600 text-lg">Backed by decades of collective experience, our partners and managers ensure the highest standards of corporate governance.</p>
         </div>
-        <div class="mt-8 md:mt-0 pb-2">
+        <div class="mt-8 md:mt-0 pb-2 animate-on-scroll slide-in-right">
           <a href="/about#leadership" class="inline-flex items-center text-brand-blue font-bold group hover:text-brand-accent transition-colors border-b-2 border-brand-blue hover:border-brand-accent pb-1">
             View All Members
             <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -125,29 +171,29 @@ const featuredServices = featuredServiceSlugs
         {SITE_DATA.team.slice(0, 3).map((member, index) => {
           const slug = member.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
           return (
-          <div class={`bg-brand-light rounded-xl overflow-hidden shadow border border-slate-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll stagger-${(index % 3) + 1} flex flex-col`}>
+          <div class={`bg-brand-light rounded-xl overflow-hidden shadow border border-slate-100 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 animate-on-scroll scale-in stagger-${(index % 3) + 1} flex flex-col group/member`}>
             <div class="aspect-[4/5] overflow-hidden relative group shrink-0 bg-slate-100">
               <img 
                 src={member.image} 
                 alt={member.name} 
                 loading="lazy"
                 decoding="async"
-                class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
+                class="w-full h-full object-cover object-top transition-transform duration-700 group-hover/member:scale-110 grayscale-[0.2] md:grayscale group-hover/member:grayscale-0"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-transparent to-transparent opacity-80"></div>
-              <div class="absolute bottom-4 left-4 right-4">
+              <div class="absolute inset-0 bg-gradient-to-t from-brand-blue/90 via-transparent to-transparent opacity-80 transition-opacity group-hover/member:opacity-60"></div>
+              <div class="absolute bottom-4 left-4 right-4 translate-y-2 opacity-0 group-hover/member:translate-y-0 group-hover/member:opacity-100 transition-all duration-500">
                 <span class="bg-brand-accent text-white text-xs font-bold px-2 py-1 rounded inline-block mb-2">{member.role}</span>
               </div>
             </div>
             
-            <div class="p-6 flex flex-col flex-grow">
-              <h3 class="text-xl font-bold text-brand-blue mb-1">{member.name}</h3>
+            <div class="p-6 flex flex-col flex-grow bg-white">
+              <h3 class="text-xl font-bold text-brand-blue mb-1 group-hover/member:text-brand-accent transition-colors">{member.name}</h3>
               {member.qualification && <p class="text-sm font-semibold text-slate-500 mb-4">{member.qualification}</p>}
               
               <div class="mt-auto pt-4 border-t border-slate-200">
-                <a href={`/team/${slug}`} class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors">
-                  Read Profile
-                  <svg class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                <a href={`/team/${slug}`} class="inline-flex items-center text-brand-accent font-semibold hover:text-brand-blue transition-colors group/link">
+                  <span>Read Profile</span>
+                  <svg class="w-4 h-4 ml-1 transform group-hover/link:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                 </a>
               </div>
             </div>
@@ -157,8 +203,9 @@ const featuredServices = featuredServiceSlugs
     </div>
   </section>
 
+
   <!-- CTA Section -->
-  <section class="py-16 relative overflow-hidden bg-gradient-to-r from-brand-light via-[#EDF2F9] to-brand-light border-t border-slate-100">
+  <section class="py-12 md:py-16 relative overflow-hidden bg-gradient-to-r from-brand-light via-[#EDF2F9] to-brand-light border-t border-slate-100">
     <div class="absolute inset-0 opacity-[0.025] pointer-events-none" style="background-image: radial-gradient(#1B5091 1px, transparent 1px); background-size: 24px 24px;"></div>
     <div class="absolute right-0 top-1/2 -translate-y-1/2 w-64 h-64 bg-brand-blue/[0.04] rounded-full blur-[80px] pointer-events-none"></div>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-8 animate-on-scroll relative z-10">
@@ -166,9 +213,9 @@ const featuredServices = featuredServiceSlugs
         <h2 class="font-serif text-2xl sm:text-3xl font-bold text-brand-blue mb-2">Keep Your Business Compliant, Without the Complexity</h2>
         <p class="text-slate-500 text-base">We handle the regulations so you can focus on running your company.</p>
       </div>
-      <a href="/contact" class="shrink-0 inline-flex items-center px-8 py-4 bg-brand-accent text-white font-bold rounded-sm hover:bg-brand-accent-hover transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 duration-300 group">
-        Contact Us
-        <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+      <a href="/contact" class="shrink-0 inline-flex items-center px-10 py-5 bg-brand-accent text-white font-bold rounded-full hover:bg-brand-accent-hover transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1 duration-300 group magnetic-btn">
+        <span>Contact Us</span>
+        <svg class="w-6 h-6 ml-3 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
       </a>
     </div>
   </section>
