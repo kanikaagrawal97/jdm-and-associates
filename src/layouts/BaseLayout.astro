@@ -66,6 +66,29 @@ const pageTitle = title === "Home" ? "JDM and Associates LLP | Corporate Governa
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "LegalService",
+			"name": "JDM and Associates LLP",
+			"image": ogImageURL,
+			"@id": siteUrl,
+			"url": siteUrl,
+			"telephone": "+91 9510827803",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "101-B, Zenon, Opp, Unique Hospital, B/s. New Opera House, Bamroli Road",
+				"addressLocality": "Surat",
+				"addressRegion": "GJ",
+				"postalCode": "395002",
+				"addressCountry": "IN"
+			},
+			"description": "JDM and Associates LLP is a peer-reviewed corporate service firm specialising in Corporate Laws, Secretarial Compliances, FEMA, XBRL, Secretarial Audits, IPO Due Diligence, and more.",
+			"sameAs": [
+				"https://www.linkedin.com/company/jdm-and-associates-llp"
+			]
+		})}></script>
+
 		<ClientRouter />
 	</head>
 	<body class="flex flex-col min-h-screen bg-brand-light">

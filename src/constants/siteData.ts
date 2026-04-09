@@ -57,7 +57,7 @@ export const SITE_DATA = {
       slug: "event-based-compliances",
       shortSummary:
         "Expert assistance for corporate changes, securities allotment, ESG reporting, and NBFC regulatory support.",
-      image: "/images/services/compliances.jpg",
+      image: "/images/services/event_compliance.png",
       items: [
         "Updation of information services relating to Name Change, Conversion (Pvt. Ltd. to Public Ltd. and vice versa / Pvt. Ltd. or Public Ltd. to LLP and vice versa), Increase of Authorised Share Capital, Shifting of Registered offices (including one state to another), Allotment/Transfer/Transmission of Securities, Alteration in Board Members and in Main Object, filing of petition to Regional Director for delay is registering and satisfying of charges.",
         "Updation of information services relating to Name Change, Conversion (Pvt. Ltd. to LLP and vice versa, Contribution Increase, Shifting of Registered offices (including one state to another), Alteration in Main Object and addition and resignation of Partner.",
@@ -71,7 +71,7 @@ export const SITE_DATA = {
       slug: "secretarial-audit",
       shortSummary:
         "Rigorous auditing for PSUs and Private/Public firms, including M&A due diligence.",
-      image: "/images/services/audit.jpg",
+      image: "/images/services/secretarial_audit.png",
       items: [
         "Secretarial Audit / Secretarial Compliance Certificate for Public Sector Undertaking, Public and Private Limited Companies.",
         "Due Diligence Certification of the Corporate to ensure Secretarial / Legal Compliances including Due Diligence Audit for Merger, Amalgamation, Take over, Private Equity Participation & Bought Out Deals.",
@@ -82,7 +82,7 @@ export const SITE_DATA = {
       slug: "fema-compliances",
       shortSummary:
         "Detailed guidance on FDI/ODI structuring, ECB norms, and RBI regulatory liaison.",
-      image: "/images/services/fema.jpg",
+      image: "/images/services/fema_compliance.png",
       items: [
         {
           title: "Inbound & Outbound Investments:",
@@ -119,7 +119,7 @@ export const SITE_DATA = {
       slug: "xbrl-efiling",
       shortSummary:
         "Mandated XBRL reporting for financial statements and cost audit reports to the MCA.",
-      image: "/images/services/xbrl.jpg",
+      image: "/images/services/xbrl_conversion.png",
       items: [
         {
           title: "XBRL for Ministry of Corporate Affairs (MCA)",
@@ -143,7 +143,7 @@ export const SITE_DATA = {
       slug: "corporate-restructuring",
       shortSummary:
         "Strategic support for mergers, amalgamations, NCLT petitions, and capital restructuring.",
-      image: "/images/services/restructuring.jpg",
+      image: "/images/services/corporate_restructuring.png",
       items: [
         "Drafting and filing petitions under Sections 230–232 (Mergers, Demergers, Amalgamations)",
         "Oppression and Mismanagement petitions under Sections 241–242",
@@ -157,7 +157,7 @@ export const SITE_DATA = {
       slug: "banking-services",
       shortSummary:
         "Detailed search reports, legal opinions, and security interest protection for lenders.",
-      image: "/images/services/legal.jpg",
+      image: "/images/services/banking_services.png",
       items: [
         "Issue of Detailed search Reports.",
         "Opinion on various Company Law matters.",
@@ -170,7 +170,7 @@ export const SITE_DATA = {
       slug: "sebi-stock-exchange",
       shortSummary:
         "Full-spectrum compliance for listed companies, including secretarial audits and SDD compliance.",
-      image: "/images/services/listing.jpg",
+      image: "/images/services/sebi_listing.png",
       items: [
         "Preparation of the Offer Documents – Public Announcement, Letter of Offer, Draft Prospectus, and Draft Letter of Offer for Rights Issues.",
         "Ensuring compliances with the Listing Agreement, particularly with regard to Corporate Governance, Clause 35, and annual / periodical Compliances under Takeover Code for listed companies.",
@@ -193,7 +193,7 @@ export const SITE_DATA = {
       slug: "startup-registration",
       shortSummary:
         "DPIIT recognition, Startup India portal management, and Seed Fund Scheme (SISFS) assistance.",
-      image: "/images/services/startup.jpg",
+      image: "/images/services/startup_registration.png",
       items: [
         "Preparation and submission of DPIIT Startup Recognition application.",
         "Registration on the Startup India portal, Profile creation and management.",
@@ -206,7 +206,7 @@ export const SITE_DATA = {
       slug: "legal-agreements",
       shortSummary:
         "Expert drafting and vetting of Shareholders, JV, and business takeover agreements.",
-      image: "/images/services/legal.jpg",
+      image: "/images/services/legal_agreements.png",
       items: [
         "Shareholder’s Agreement / Share Purchase Agreements.",
         "Joint Venture Agreements.",
@@ -218,7 +218,7 @@ export const SITE_DATA = {
       slug: "trademarks-copyrights",
       shortSummary:
         "Comprehensive IPR management, from application and hearings to registration completion.",
-      image: "/images/services/legal.jpg",
+      image: "/images/services/trademarks_copyrights.png",
       items: [
         "Preparation / Consulting on Application and submissions including hearing.",
         "Obtaining the Registration Certificate and completion of all legal formalities.",
@@ -229,7 +229,7 @@ export const SITE_DATA = {
       slug: "business-closure",
       shortSummary:
         "End-to-end guidance on winding up and closure of Companies and LLPs under regulatory rules.",
-      image: "/images/services/closure.jpg",
+      image: "/images/services/corporate_closure.png",
       items: [
         "Advising & Documentation with respect to closure of Companies u/s 248(2) of the Companies Act, 2013 and Rule 4(1) of the Companies (Removal of Names of Companies from the Register of Companies) Rules, 2016] (Defunct Companies).",
         "Advising & Documentation with respect to winding up of Companies as per provisions of the Companies Act, 2013.",
