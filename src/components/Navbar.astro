@@ -36,9 +36,9 @@ const links = SITE_DATA.navLinks;
             <div class="relative group h-full flex items-center">
               <a
                 href={link.href}
-                class={`font-medium text-sm transition-colors flex items-center gap-1 py-8 link-underline ${
+                class={`font-medium text-sm transition-colors flex items-center gap-1 py-1 relative ${
                   isActive(link.href) 
-                    ? 'text-brand-accent border-b-2 border-brand-accent font-bold' 
+                    ? 'text-brand-accent font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-accent' 
                     : 'text-brand-blue hover:text-brand-accent'
                 }`}
               >
@@ -68,9 +68,9 @@ const links = SITE_DATA.navLinks;
           ) : (
             <a
               href={link.href}
-              class={`font-medium text-sm transition-colors py-8 link-underline ${
+              class={`font-medium text-sm transition-colors flex items-center py-1 relative ${
                 isActive(link.href) 
-                  ? 'text-brand-accent border-b-2 border-brand-accent font-bold' 
+                  ? 'text-brand-accent font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-accent' 
                   : 'text-brand-blue hover:text-brand-accent'
               }`}
             >
