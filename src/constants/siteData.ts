@@ -343,7 +343,7 @@ export const SITE_DATA = {
         email: "office@csjdm.com",
       },
     ],
-    phones: [{ number: "+91 9510827803" }],
+    phones: [{ number: "+91 9510827803" }, { number: "+91 81285 98731" }],
     website: "www.csjdm.com",
     offices: [
       {
@@ -353,7 +353,7 @@ export const SITE_DATA = {
           "101-B, Zenon, Opp, Unique Hospital, B/s. New Opera House, Bamroli Road, Surat - 395002",
         email: "dhaval@csjdm.com",
         phone: "+91 9879394866",
-        contactPerson: "Dhaval P. Master",
+        contactPerson: "CS Dhaval P. Master",
         mapEmbedUrl:
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.4107764989985!2d72.82156627975242!3d21.17583483025831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04e1549362797%3A0xab2b2892fee8bcb!2sWhite%20Wings%20Zenon!5e0!3m2!1sen!2sin!4v1774262838661!5m2!1sen!2sin",
       },
@@ -364,7 +364,7 @@ export const SITE_DATA = {
           "Sri Ranga, 1st Floor, No. 151, Mambalam High Road, T. Nagar, Chennai - 600017",
         email: "jaisal@csjdm.com",
         phone: "+91 9799661616",
-        contactPerson: "Jaisal Mohatta",
+        contactPerson: "CS Jaisal Mohatta",
         mapEmbedUrl:
           "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.9115487147396!2d80.229648!3d13.0413019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5266f8d7256811%3A0x72bdcee5d933d290!2sSri%20Ranga%20Building%2C%20T.%20Nagar%2C%20Chennai%2C%20Tamil%20Nadu%20600017!5e0!3m2!1sen!2sin!4v1775561421667!5m2!1sen!2sin",
       },
@@ -375,7 +375,7 @@ export const SITE_DATA = {
           "42, 1st Floor, Singh Industrial Estate No. 3, Ram Mandir Road, Near Movie Star Theatre, Goregaon (W), Mumbai, Maharashtra, India, 400104",
         email: "ektak@csjdm.com",
         phone: "+91 92136 02870",
-        contactPerson: "Ekta Kansal",
+        contactPerson: "CS Ekta Kansal",
         mapEmbedUrl:
           "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3769.0131194901023!2d72.847533!3d19.150903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTnCsDA5JzAzLjMiTiA3MsKwNTAnNTEuMSJF!5e0!3m2!1sen!2sin!4v1775565594963!5m2!1sen!2sin",
       },
