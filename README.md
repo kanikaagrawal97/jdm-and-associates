@@ -22,9 +22,9 @@
 
 ## 1. Master Account Access
 
-All project accounts are linked to the professional Google Account **jaisal@csjdm.com**.
+All project accounts are linked to the primary admin according to the information mentioned above.
 
-> **Important:** To access any of the services below, simply go to the login page and sign in with the primary admin account credentials above.
+> **Important:** To access any of the services below, simply go to the login page and enter the primary admin account credentials mentioned above.
 
 | Service    | Purpose                                                     | Website                                            |
 | :--------- | :---------------------------------------------------------- | :------------------------------------------------- |
@@ -36,7 +36,7 @@ All project accounts are linked to the professional Google Account **jaisal@csjd
 
 ## 2. Service Limits (Free Tier)
 
-The setup uses professional Free Tiers. Below are the limits to keep in mind as the firm grows:
+We have utilized the Free Tiers for your setup. Below are the limits to keep in mind as the firm grows:
 
 ### Cloudflare (Hosting & Security)
 
@@ -61,7 +61,7 @@ The setup uses professional Free Tiers. Below are the limits to keep in mind as 
 
 ### Email Inquiries
 
-When a client submits a form on [www.csjdm.com](https://www.csjdm.com), the email will arrive in the `jaisal@csjdm.com` inbox, sent via Web3Forms. If emails stop arriving, check the Web3Forms dashboard to see if the 250-submission monthly limit has been exceeded.
+When a client submits a form on [www.csjdm.com](https://www.csjdm.com), the email will arrive in your `jaisal@csjdm.com` inbox. It will be sent via Web3Forms. If you stop receiving emails, check your Web3Forms dashboard to see if you have exceeded the 250-submission limit.
 
 ### Domain Renewal
 
@@ -75,15 +75,16 @@ The "Padlock" icon (SSL certificate) is handled **automatically by Cloudflare**.
 
 ## 4. Instructions for Future Developers
 
-If a new developer takes over this project, provide them with this document along with the following technical notes:
+If a new developer takes over this project, provide them with this document and the following technical notes:
 
-| Detail     | Info                                                                                                                             |
-| :--------- | :------------------------------------------------------------------------------------------------------------------------------- |
-| Framework  | Built with **Astro**                                                                                                             |
-| Repository | Hosted on **GitHub** (Sign in with Google: `jaisal@csjdm.com`)                                                                   |
-| Deployment | Connected via **Cloudflare Pages** with automatic deployments on `git push`                                                      |
-| DNS        | Managed entirely through **Cloudflare**. Do not modify DNS settings at the registrar unless migrating the entire infrastructure. |
-| Form Key   | The Web3Forms Access Key is embedded via environment variable and referenced in `src/components/ContactForm.astro`.              |
+| Detail      | Info                                                                                                                             |
+| :---------- | :------------------------------------------------------------------------------------------------------------------------------- |
+| Framework   | Built with **Astro**                                                                                                             |
+| Repository  | Hosted through **Cloudflare** (Sign in with admin account credentials above)                                                     |
+| GitHub Repo | [jaisal-csjdm/jdm-and-associates](https://github.com/jaisal-csjdm/jdm-and-associates.git)                                        |
+| Deployment  | Connected via **Cloudflare Pages** with automatic deployments on `git push`                                                      |
+| DNS         | Managed entirely through **Cloudflare**. Do not modify DNS settings at the registrar unless migrating the entire infrastructure. |
+| Form Key    | The Web3Forms Access Key is embedded **directly in the source code** at `src/components/ContactForm.astro`.                      |
 
 ---
 
@@ -105,7 +106,7 @@ All commands are run from the root of the project:
 ├── public/
 ├── src/
 │   ├── components/
-│   │   └── ContactForm.astro   ← Web3Forms key lives here (via env var)
+│   │   └── ContactForm.astro   ← Web3Forms key lives here (hardcoded)
 │   └── pages/
 │       └── index.astro
 └── package.json
