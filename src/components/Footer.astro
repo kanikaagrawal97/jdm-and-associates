@@ -54,7 +54,7 @@ import Logo from './Logo.astro';
               <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center shrink-0 group-hover:bg-brand-accent/20 transition-colors">
                 <svg class="w-3.5 h-3.5 text-white/60 group-hover:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
               </div>
-              <span class="text-[13px] font-medium tracking-wide truncate">{item.email}</span>
+              <!-- email_off --><span class="text-[13px] font-medium tracking-wide truncate">{item.email}</span><!-- /email_off -->
             </a>
           ))}
           
@@ -99,7 +99,7 @@ import Logo from './Logo.astro';
                       <div class="w-7 h-7 rounded bg-white/10 flex items-center justify-center shrink-0 group-hover/link:bg-brand-accent/20 transition-colors">
                         <svg class="w-3.5 h-3.5 text-white/60 group-hover/link:text-brand-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                       </div>
-                      <span class="text-[13px] font-medium truncate">{office.email}</span>
+                      <!-- email_off --><span class="text-[13px] font-medium truncate">{office.email}</span><!-- /email_off -->
                     </a>
                   )}
                   {office.phone && (
