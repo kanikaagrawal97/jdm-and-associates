@@ -1,3 +1,7 @@
+# Disable Cloudflare Email Obfuscation (prevents [email protected] bug on tab switch)
+/*
+  X-Email-Obfuscation: off
+
 # Astro hashed assets — cache indefinitely (they change hash on rebuild)
 /_astro/*
   Cache-Control: public, max-age=31536000, immutable
